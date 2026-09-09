@@ -1,0 +1,14 @@
+{
+  "version": "paper-risk-0.2.0",
+  "cluster_version": "paper-clusters-2026-09-03-v1",
+  "risk_per_trade": 0.0025,
+  "maximum_positions": 4,
+  "maximum_stop_risk": 0.01,
+  "maximum_gross": 1.0,
+  "maximum_name": 0.25,
+  "maximum_sector": 0.35,
+  "maximum_cluster_stop_risk": 0.005,
+  "reduce_at_drawdown": 0.05,
+  "halt_at_drawdown": 0.10,
+  "daily_loss_limit": 0.01
+}

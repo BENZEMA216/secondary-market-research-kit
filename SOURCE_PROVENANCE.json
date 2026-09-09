@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "source_project": "scenario-router-research",
+  "engine_version": "0.3.0",
+  "source_base_commit": "acd902d",
+  "source_state": "working-tree snapshot including uncommitted backtest additions",
+  "source_manifest_sha256": "d283ab4f828c3fec826a523a24f8bf656fe20192f60e3b4dc32c5a5299bba6a0",
+  "source_files_verified": 49,
+  "source_files_modified": false,
+  "excluded": [
+    "git metadata",
+    "runtime results",
+    "caches",
+    "external data",
+    "credentials"
+  ],
+  "package_version": "0.1.0"
+}

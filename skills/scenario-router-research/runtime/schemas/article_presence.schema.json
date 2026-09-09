@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scenario-router:schema:article-presence:1",
+  "title": "Point-in-time ticker-linked article observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_type",
+    "record_id",
+    "provider",
+    "provider_item_id",
+    "security_id",
+    "ticker_at_event",
+    "first_published_at_utc",
+    "article_available_at_utc",
+    "ticker_link_available_at_utc",
+    "link_method",
+    "provider_categories",
+    "normalized_category",
+    "category_provenance",
+    "source_locator",
+    "raw_payload_sha256",
+    "revision",
+    "supersedes_record_id",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"const": "article_presence"},
+    "record_id": {"type": "string", "minLength": 1},
+    "provider": {"type": "string", "minLength": 1},
+    "provider_item_id": {"type": "string", "minLength": 1},
+    "security_id": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scheme", "value"],
+      "properties": {
+        "scheme": {"enum": ["FIGI", "QC_SID"]},
+        "value": {"type": "string", "minLength": 1}
+      }
+    },
+    "ticker_at_event": {"type": "string", "pattern": "^[A-Z0-9.\\-]+$"},
+    "first_published_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "article_available_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "ticker_link_available_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "link_method": {"enum": ["provider_ticker_link", "deterministic_security_map", "agent_inferred"]},
+    "provider_categories": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "normalized_category": {"enum": ["earnings", "guidance", "other", "unclassified"]},
+    "category_provenance": {"enum": ["deterministic_vendor_map", "agent", "human"]},
+    "source_locator": {"type": "string", "minLength": 1},
+    "raw_payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "revision": {"type": "integer", "minimum": 1},
+    "supersedes_record_id": {"type": ["string", "null"]},
+    "status": {"enum": ["active", "retracted"]}
+  }
+}

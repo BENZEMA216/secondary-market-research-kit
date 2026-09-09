@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scenario Router 研究"
+  short_description: "场景路由策略研究、合成验证与历史回放"
+  default_prompt: "使用 $scenario-router-research，先检查本地环境并确认输入与实验范围，再运行所需研究流程，按证据层级解释结果与限制。"

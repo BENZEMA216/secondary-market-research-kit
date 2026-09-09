@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scenario-router-research"
+version = "0.3.0"
+description = "US-equity research rules, portfolio risk, local paper execution and auditable AI review"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["scenario_router*"]

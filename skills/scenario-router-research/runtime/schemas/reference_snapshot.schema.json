@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scenario-router:schema:reference-snapshot:1",
+  "title": "Point-in-time consensus or prior-guidance snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "record_type", "record_id", "provider", "security_id",
+    "ticker_at_snapshot", "snapshot_kind", "metric", "fiscal_period", "period_type",
+    "available_at_utc", "value", "low", "high", "currency", "unit", "basis",
+    "raw_payload_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"const": "reference_snapshot"},
+    "record_id": {"type": "string", "minLength": 1},
+    "provider": {"type": "string", "minLength": 1},
+    "security_id": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scheme", "value"],
+      "properties": {
+        "scheme": {"enum": ["FIGI", "QC_SID"]},
+        "value": {"type": "string", "minLength": 1}
+      }
+    },
+    "ticker_at_snapshot": {"type": "string", "pattern": "^[A-Z0-9.\\-]+$"},
+    "snapshot_kind": {"enum": ["consensus", "prior_guidance"]},
+    "metric": {"enum": ["eps", "revenue"]},
+    "fiscal_period": {"type": "string", "pattern": "^(?:FY[0-9]{4}|[0-9]{4}Q[1-4])$"},
+    "period_type": {"enum": ["fiscal_year", "fiscal_quarter", "other"]},
+    "available_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "value": {"type": ["string", "null"]},
+    "low": {"type": ["string", "null"]},
+    "high": {"type": ["string", "null"]},
+    "currency": {"type": "string", "minLength": 1},
+    "unit": {"type": "string", "minLength": 1},
+    "basis": {"type": "string", "minLength": 1},
+    "raw_payload_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  }
+}

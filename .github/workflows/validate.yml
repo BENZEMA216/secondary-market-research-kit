@@ -1,0 +1,28 @@
+name: Validate research kit
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-validation:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Verify release inputs
+        run: python scripts/share.py verify
+      - name: Check Skill environment
+        run: python skills/scenario-router-research/scripts/research.py doctor
+      - name: Run original engine validation in isolation
+        run: python skills/scenario-router-research/scripts/research.py validate
+      - name: Test Agent CLI and share/install boundaries
+        run: python -m unittest discover -s tests -v
+      - name: Build distributable archives
+        run: python scripts/share.py build --output dist

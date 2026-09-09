@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:scenario-router:schema:structured-event:1",
+  "title": "Point-in-time earnings or guidance facts",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_type",
+    "record_id",
+    "event_key",
+    "security_id",
+    "ticker_at_event",
+    "event_kind",
+    "fiscal_period",
+    "first_published_at_utc",
+    "effective_available_at_utc",
+    "input_article_record_ids",
+    "provenance_mode",
+    "verification_status",
+    "facts",
+    "field_evidence",
+    "agent_run",
+    "raw_inputs_sha256",
+    "revision",
+    "supersedes_record_id"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_type": {"const": "structured_event"},
+    "record_id": {"type": "string", "minLength": 1},
+    "event_key": {"type": "string", "minLength": 1},
+    "security_id": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scheme", "value"],
+      "properties": {
+        "scheme": {"enum": ["FIGI", "QC_SID"]},
+        "value": {"type": "string", "minLength": 1}
+      }
+    },
+    "ticker_at_event": {"type": "string", "pattern": "^[A-Z0-9.\\-]+$"},
+    "event_kind": {"enum": ["earnings", "guidance"]},
+    "fiscal_period": {"type": "string", "pattern": "^(?:FY[0-9]{4}|[0-9]{4}Q[1-4])$"},
+    "first_published_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "effective_available_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+    "input_article_record_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "provenance_mode": {"enum": ["vendor_structured", "deterministic_vendor_map", "agent_extracted"]},
+    "verification_status": {"enum": ["verified", "pending", "conflict", "rejected"]},
+    "facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eps": {"$ref": "#/$defs/actualConsensus"},
+        "revenue": {"$ref": "#/$defs/actualConsensus"},
+        "guidance_disposition": {"enum": ["raised", "maintained", "verified_not_issued", "cut", "mixed", "unknown"]},
+        "guidance_capture_status": {"enum": ["complete", "partial", "not_applicable"]},
+        "guidance_metrics_issued": {
+          "type": "array",
+          "items": {"enum": ["revenue", "eps"]},
+          "uniqueItems": true
+        },
+        "prior_guidance_capture_status": {"enum": ["complete", "partial", "not_applicable"]},
+        "prior_guidance_metrics_issued": {
+          "type": "array",
+          "items": {"enum": ["revenue", "eps"]},
+          "uniqueItems": true
+        },
+        "guidance": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/guidanceMetric"}
+        }
+      }
+    },
+    "field_evidence": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["input_record_id", "source_field"],
+        "properties": {
+          "input_record_id": {"type": "string", "minLength": 1},
+          "source_field": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "agent_run": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["run_id", "model", "prompt_sha256", "input_manifest_sha256", "generated_at_utc", "verifier_run_id", "verifier_model", "verifier_prompt_sha256", "verified_at_utc"],
+          "properties": {
+            "run_id": {"type": "string", "minLength": 1},
+            "model": {"type": "string", "minLength": 1},
+            "prompt_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "input_manifest_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "generated_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+            "verifier_run_id": {"type": ["string", "null"], "minLength": 1},
+            "verifier_model": {"type": ["string", "null"], "minLength": 1},
+            "verifier_prompt_sha256": {
+              "anyOf": [
+                {"type": "null"},
+                {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+              ]
+            },
+            "verified_at_utc": {
+              "anyOf": [
+                {"type": "null"},
+                {"type": "string", "format": "date-time", "pattern": "Z$"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "raw_inputs_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "revision": {"type": "integer", "minimum": 1},
+    "supersedes_record_id": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "currency", "unit", "basis", "period", "period_type"],
+      "properties": {
+        "value": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        "currency": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "period": {"type": "string", "pattern": "^(?:FY[0-9]{4}|[0-9]{4}Q[1-4])$"},
+        "period_type": {"enum": ["fiscal_year", "fiscal_quarter"]}
+      }
+    },
+    "consensusMeasurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "currency", "unit", "basis", "period", "period_type", "snapshot_at_utc", "source_record_id"],
+      "properties": {
+        "value": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        "currency": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "period": {"type": "string", "pattern": "^(?:FY[0-9]{4}|[0-9]{4}Q[1-4])$"},
+        "period_type": {"enum": ["fiscal_year", "fiscal_quarter"]},
+        "snapshot_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"},
+        "source_record_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "actualConsensus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["actual", "consensus"],
+      "properties": {
+        "actual": {"$ref": "#/$defs/measurement"},
+        "consensus": {"$ref": "#/$defs/consensusMeasurement"}
+      }
+    },
+    "guidancePoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["low", "high", "period", "period_type", "currency", "unit", "basis", "source_record_id"],
+      "properties": {
+        "low": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        "high": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        "period": {"type": "string", "pattern": "^(?:FY[0-9]{4}|[0-9]{4}Q[1-4])$"},
+        "period_type": {"enum": ["fiscal_year", "fiscal_quarter", "other"]},
+        "currency": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "source_record_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "guidanceMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric", "current", "prior"],
+      "properties": {
+        "metric": {"enum": ["revenue", "eps"]},
+        "current": {"$ref": "#/$defs/guidancePoint"},
+        "prior": {"$ref": "#/$defs/priorGuidancePoint"}
+      }
+    },
+    "priorGuidancePoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["low", "high", "period", "period_type", "currency", "unit", "basis", "source_record_id", "available_at_utc"],
+      "properties": {
+        "low": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        "high": {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        "period": {"type": "string", "pattern": "^(?:FY[0-9]{4}|[0-9]{4}Q[1-4])$"},
+        "period_type": {"enum": ["fiscal_year", "fiscal_quarter", "other"]},
+        "currency": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "source_record_id": {"type": "string", "minLength": 1},
+        "available_at_utc": {"type": "string", "format": "date-time", "pattern": "Z$"}
+      }
+    }
+  }
+}
