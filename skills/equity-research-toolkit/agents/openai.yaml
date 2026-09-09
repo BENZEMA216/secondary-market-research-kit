@@ -1,0 +1,4 @@
+interface:
+  display_name: "个股研究工具（基于 FinRobot）"
+  short_description: "财务、预测、估值和研报的可审计脚本接口"
+  default_prompt: "Use $equity-research-toolkit to inspect available commands, validate local inputs, and produce a clearly labeled equity research artifact. Keep external data and model calls disabled unless explicitly requested."

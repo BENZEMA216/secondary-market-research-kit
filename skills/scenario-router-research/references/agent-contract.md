@@ -1,6 +1,6 @@
 # Agent 调用契约
 
-契约对应工具包 0.1.0、研究引擎 0.3.0。以本 Skill 的 `SKILL.md` 所在目录为根，统一入口为 `scripts/research.py`。以下命令均以已经解析到真实安装目录为前提；示例写作 `python3.11 scripts/research.py`。
+本契约接口自工具包 0.1.0 沿用至 0.2.0，研究引擎为 0.3.0。以本 Skill 的 `SKILL.md` 所在目录为根，统一入口为 `scripts/research.py`。以下命令均以已经解析到真实安装目录为前提；示例写作 `python3.11 scripts/research.py`。
 
 ## 运行与输出
 

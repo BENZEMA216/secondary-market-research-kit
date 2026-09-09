@@ -1,0 +1,159 @@
+{
+  "ticker": "DEMO",
+  "company_name": "Synthetic Example Company",
+  "financial_data": {
+    "income_statement": {
+      "$table": [
+        {
+          "date": "2023-12-31",
+          "year": 2023,
+          "calendarYear": "2023",
+          "revenue": 100000000,
+          "costOfRevenue": 55000000.00000001,
+          "grossProfit": 45000000.0,
+          "sellingGeneralAndAdministrativeExpenses": 15000000.0,
+          "ebitda": 30000000.0,
+          "eps": 2.0,
+          "epsdiluted": 2.0
+        },
+        {
+          "date": "2024-12-31",
+          "year": 2024,
+          "calendarYear": "2024",
+          "revenue": 120000000,
+          "costOfRevenue": 66000000.00000001,
+          "grossProfit": 54000000.0,
+          "sellingGeneralAndAdministrativeExpenses": 18000000.0,
+          "ebitda": 36000000.0,
+          "eps": 2.4,
+          "epsdiluted": 2.4
+        }
+      ]
+    },
+    "balance_sheet": {
+      "$table": [
+        {
+          "date": "2023-12-31",
+          "year": 2023,
+          "totalAssets": 200000000,
+          "totalDebt": 20000000,
+          "cashAndCashEquivalents": 10000000
+        },
+        {
+          "date": "2024-12-31",
+          "year": 2024,
+          "totalAssets": 200000000,
+          "totalDebt": 20000000,
+          "cashAndCashEquivalents": 10000000
+        }
+      ]
+    },
+    "cash_flow": {
+      "$table": [
+        {
+          "date": "2023-12-31",
+          "year": 2023,
+          "freeCashFlow": 18000000.0,
+          "operatingCashFlow": 22000000.0,
+          "capitalExpenditure": -4000000.0
+        },
+        {
+          "date": "2024-12-31",
+          "year": 2024,
+          "freeCashFlow": 21600000.0,
+          "operatingCashFlow": 26400000.0,
+          "capitalExpenditure": -4800000.0
+        }
+      ]
+    },
+    "ratios": {
+      "$table": [
+        {
+          "date": "2023-12-31",
+          "year": 2023,
+          "calendarYear": "2023",
+          "priceEarningsRatio": 15,
+          "peRatio": 15,
+          "debtEquityRatio": 0.1,
+          "debtRatio": 0.1,
+          "interestCoverage": 10,
+          "netProfitMargin": 0.2,
+          "currentRatio": 2,
+          "cashFlowToDebtRatio": 1
+        },
+        {
+          "date": "2024-12-31",
+          "year": 2024,
+          "calendarYear": "2024",
+          "priceEarningsRatio": 15,
+          "peRatio": 15,
+          "debtEquityRatio": 0.1,
+          "debtRatio": 0.1,
+          "interestCoverage": 10,
+          "netProfitMargin": 0.2,
+          "currentRatio": 2,
+          "cashFlowToDebtRatio": 1
+        }
+      ]
+    },
+    "key_metrics": {
+      "$table": [
+        {
+          "date": "2023-12-31",
+          "year": 2023,
+          "calendarYear": "2023",
+          "peRatio": 15,
+          "enterpriseValueOverEBITDA": 12
+        },
+        {
+          "date": "2024-12-31",
+          "year": 2024,
+          "calendarYear": "2024",
+          "peRatio": 15,
+          "enterpriseValueOverEBITDA": 12
+        }
+      ]
+    }
+  },
+  "forecast_config": {
+    "revenue_base_year": "2024A",
+    "revenue_growth_assumptions": {
+      "2025E": 0.05,
+      "2026E": 0.06,
+      "2027E": 0.04
+    },
+    "margin_improvement": {
+      "Contribution Margin": 0.01,
+      "EBITDA Margin": 0.01
+    },
+    "sga_margin_change": -0.005
+  },
+  "valuation_inputs": {
+    "financial_data": {
+      "ebitda": 36000000,
+      "free_cash_flow": 21600000,
+      "shares_outstanding": 10000000,
+      "current_price": 30
+    },
+    "target_multiple": 12,
+    "assumptions": {
+      "growth_rate_1_5": 0.1,
+      "growth_rate_6_10": 0.05,
+      "terminal_growth": 0.025,
+      "wacc": 0.1,
+      "projection_years": 10
+    }
+  },
+  "text_sections": {
+    "tagline": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "company_overview": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "investment_overview": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "valuation_overview": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "risks": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "competitor_analysis": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "major_takeaways": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions.",
+    "news_summary": "SYNTHETIC FIXTURE ONLY. This section is supplied test text, with no market facts or model call. The fictional company revenue increased from 100 to 120 million units; all forecasts are scenario assumptions."
+  },
+  "generate_text": false,
+  "pdf": false
+}

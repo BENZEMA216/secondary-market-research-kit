@@ -47,11 +47,11 @@ class ShareTests(unittest.TestCase):
         code, payload = self.call("build", "--output", "release output")
         self.assertEqual(code, 0, payload)
         output = self.base / "release output"
-        with zipfile.ZipFile(output / f"{SKILL}-0.1.0.zip") as archive:
+        with zipfile.ZipFile(output / f"{SKILL}-0.2.0.zip") as archive:
             self.assertIn(f"{SKILL}/SKILL.md", archive.namelist())
             self.assertIn(f"{SKILL}/scripts/research.py", archive.namelist())
             archive.extractall(self.base / "extracted")
-        with zipfile.ZipFile(output / "secondary-market-research-kit-0.1.0.zip") as archive:
+        with zipfile.ZipFile(output / "secondary-market-research-kit-0.2.0.zip") as archive:
             self.assertFalse(any("/.env" in n or "/results/" in n or "ignored-link" in n or "/.git/" in n for n in archive.namelist()))
         for line in (output / "SHA256SUMS").read_text().splitlines():
             expected, name = line.split("  ", 1)
@@ -160,6 +160,27 @@ class ShareTests(unittest.TestCase):
             with self.assertRaisesRegex(share.ShareError, "Source changed"):
                 share.build(output)
         self.assertEqual(list(output.iterdir()), [])
+
+    def test_concurrent_source_and_manifest_edit_cannot_change_install_snapshot(self):
+        spec = importlib.util.spec_from_file_location("share_install_test", self.repo / "scripts/share.py")
+        share = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(share)
+        original_verify = share.verify
+
+        def verify_then_edit():
+            result = original_verify()
+            skill = self.repo / "skills" / SKILL
+            target = skill / "SKILL.md"
+            target.write_text(target.read_text() + "\nconcurrent edit\n")
+            share.write_manifest(skill, result[1][SKILL])
+            return result
+
+        project = self.base / "project"
+        project.mkdir()
+        with mock.patch.object(share, "verify", side_effect=verify_then_edit):
+            with self.assertRaisesRegex(share.ShareError, "Source changed"):
+                share.install(project, "codex")
+        self.assertFalse((project / ".agents/skills" / SKILL).exists())
 
     def test_claude_install_is_project_scoped(self):
         project = self.base / "claude project"

@@ -1,2 +1,4 @@
 * text=auto eol=lf
 *.zip binary
+skills/equity-research-toolkit/runtime/** -text
+skills/market-data-toolkit/runtime/** -text

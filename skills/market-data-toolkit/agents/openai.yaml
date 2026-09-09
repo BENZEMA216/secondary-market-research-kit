@@ -1,0 +1,4 @@
+interface:
+  display_name: "Market Data Toolkit"
+  short_description: "金融数据、财报材料、图表与本地检索工具"
+  default_prompt: "使用 $market-data-toolkit，先从注册表选择工具并检查依赖、权限与参数，再执行已授权的金融研究操作，明确数据来源与验证层级。"

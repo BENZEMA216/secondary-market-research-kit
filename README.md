@@ -1,14 +1,25 @@
 # 二级市场研究工具包
 
-把 Scenario Router 的研究规则、可安装 Skill 和 Agent 可调用脚本放在一个可独立分享的仓库中。工具包版本 **0.1.0**，内置研究引擎版本 **0.3.0**。
+把当前「二级」项目中的策略研究、公司研报与市场数据工具，整理成三个可独立安装的 Skill 和统一 JSON 调用入口。工具包版本 **0.2.0**；Scenario Router 引擎版本仍为 **0.3.0**。
 
-当前交付的是美股场景路由研究工具：反转信号、正向事件延续、组合风控、本地模拟成交、历史回放和可选的公司材料复核。默认离线、模型 provider 关闭；不含券商连接、历史行情数据或密钥。
+| Skill | 解决的问题 | 入口 |
+|---|---|---|
+| `scenario-router-research` | 反转/事件策略、组合风控、paper执行、历史回放、材料复核 | `scripts/research.py` |
+| `equity-research-toolkit` | FMP数据、财务预测、同业、估值/敏感性、新闻/催化剂、图表与HTML/PDF研报 | `scripts/equity.py` |
+| `market-data-toolkit` | Yahoo Finance、FMP legacy、Finnhub、SEC、Reddit、FinNLP、材料获取/检索与固定策略回测 | `scripts/tools.py` |
+
+后两组使用 FinRobot 来源代码与独立适配层，保留其许可证和归属。默认离线；外部数据与模型调用由命令显式开启。源码与 Skill 中不包含用户凭证、账号库、已有研报或浏览器登录态。完整范围、原入口对照与未适配的 legacy 扩展见 [工具覆盖说明](TOOL_COVERAGE.md)。
 
 ## 第一次运行
 
-需要 Python **3.11 或更新版本**。下面使用 `python3.11`；若已确认 `python3 --version` 至少为 3.11，也可替换为 `python3`。默认功能使用 Python 标准库，并需要 IANA 时区数据。常规 macOS/Linux 通常已具备；缺少时由 `doctor` 提示安装 `tzdata`，脚本不会自动安装。从仓库根目录运行：
+需要 Python **3.11 或更新版本**。下面使用 `python3.11`；若已确认 `python3 --version` 至少为 3.11，也可替换为 `python3`。统一入口、能力清单和依赖检查使用标准库；财务、图表等工具按需使用各 Skill 声明的依赖。Scenario Router 需要 IANA 时区数据；缺少时由 `doctor` 提示，脚本不会自动安装。从仓库根目录运行：
+
+财务研报的锁定依赖使用 Python **3.11** 验收，建议按该版本创建独立环境，不把其他 Python 版本的目录检查通过当作全部金融依赖已经可用。
 
 ```bash
+python3.11 scripts/toolkit.py list
+python3.11 scripts/toolkit.py describe equity-research-toolkit
+python3.11 scripts/toolkit.py describe market-data-toolkit
 python3.11 skills/scenario-router-research/scripts/research.py describe
 python3.11 skills/scenario-router-research/scripts/research.py doctor
 python3.11 scripts/share.py verify
@@ -21,7 +32,7 @@ python3.11 skills/scenario-router-research/scripts/research.py validate
 
 ## 安装为项目 Skill
 
-仓库：[BENZEMA216/secondary-market-research-kit](https://github.com/BENZEMA216/secondary-market-research-kit)。当前为私有仓库，接收方需要仓库访问权限，也可直接接收独立 Skill ZIP 或源码 ZIP。
+仓库：[BENZEMA216/secondary-market-research-kit](https://github.com/BENZEMA216/secondary-market-research-kit)。当前为公开仓库，可以直接克隆或从 Releases 下载分享包。
 
 ```bash
 git clone https://github.com/BENZEMA216/secondary-market-research-kit.git
@@ -31,28 +42,58 @@ cd secondary-market-research-kit
 将 Skill 安装到指定项目：
 
 ```bash
-python3.11 scripts/share.py install --project /path/to/your-project
+python3.11 scripts/share.py install --project /path/to/your-project --skill all
 ```
 
-默认复制到该项目的 `.agents/skills/scenario-router-research/`。Claude Code 使用：
+一次复制三个独立 Skill 到该项目的 `.agents/skills/`。只安装一个时，将 `all` 换为表中的 Skill 名称。不传 `--skill` 时保留旧版行为，仅安装 Scenario Router。Claude Code 使用：
 
 ```bash
-python3.11 scripts/share.py install --project /path/to/your-project --client claude
+python3.11 scripts/share.py install --project /path/to/your-project --client claude --skill all
 ```
 
-对应目录是 `.claude/skills/scenario-router-research/`。安装会复制包含运行时的完整 Skill，不依赖原仓库路径；已有目标目录时拒绝覆盖。更新时先保存需要保留的内容，再使用新的目标项目或明确处理旧版本。安装不改变全局 Skill 配置。
+对应目录是 `.claude/skills/`。安装会复制包含运行时的完整 Skill，不依赖原仓库路径；任何所选目标目录已存在时，会在写入前拒绝整个安装。更新时先保存需要保留的内容，再使用新的目标项目或明确处理旧版本。安装不改变全局 Skill 配置。第三方 Python 依赖仍需按对应 Skill 的说明安装到自己的环境。
 
-也可解压独立 Skill 包，把整个 `scenario-router-research/` 目录放进项目的 `.agents/skills/` 或 `.claude/skills/`；不要只复制 `SKILL.md`。重新打开项目或刷新客户端的 Skill 发现后，可对 Agent 说：
+也可解压独立 Skill 包，把整个 Skill 目录放进项目的 `.agents/skills/` 或 `.claude/skills/`；不要只复制 `SKILL.md`。重新打开项目或刷新客户端的 Skill 发现后，可对 Agent 说：
 
 > 使用 scenario-router-research，先检查环境和完整性，再运行信号与 paper 合成示例。按证据层级解释结果。
 
 > 使用 scenario-router-research，检查我提供的数据是否满足历史回放合同。先说明缺失的数据与时点约束，再运行指定实验。
 
+> 使用 equity-research-toolkit，先检查环境，再用合成示例生成财务分析、估值和 HTML/PDF 研报。
+
+> 使用 market-data-toolkit，查看可用数据来源和所需配置，再按我指定的公司、日期与材料范围调用。
+
 Skill 的实际发现方式取决于所用客户端；直接调用 Python 脚本始终可用。
 
 ## Agent 调用入口
 
-统一入口是 [scripts/research.py](skills/scenario-router-research/scripts/research.py)。完整接口见 [Agent 契约](skills/scenario-router-research/references/agent-contract.md)。
+统一入口是 [scripts/toolkit.py](scripts/toolkit.py)：
+
+```bash
+python3.11 scripts/toolkit.py list
+python3.11 scripts/toolkit.py describe equity-research-toolkit
+python3.11 scripts/toolkit.py doctor market-data-toolkit
+python3.11 scripts/toolkit.py run scenario-router-research -- demo --kind paper
+```
+
+公司研报的完整离线样例需要安装其锁定依赖：
+
+```bash
+python3.11 -m venv .venv
+.venv/bin/python -m pip install -r skills/equity-research-toolkit/requirements.lock.txt
+.venv/bin/python scripts/toolkit.py run equity-research-toolkit -- demo --output dist/equity-demo --pdf
+```
+
+市场工具的文本样例只需标准库：
+
+```bash
+python3.11 scripts/toolkit.py run market-data-toolkit -- run text.check_text_length \
+  --args-file skills/market-data-toolkit/examples/text-args.json --output dist/text-check
+```
+
+样例输出目录必须尚不存在；重复运行时更换目录。上述样例不请求真实行情或模型。
+
+`describe` 返回对应工具组的完整命令、参数、依赖与副作用清单；`run TOOLKIT -- ...` 保留子工具的 JSON 与退出码。各 Skill 可脱离仓库直接运行自己的脚本。Scenario Router 的接口如下，完整契约见 [Agent 契约](skills/scenario-router-research/references/agent-contract.md)。另外两组工具以自己的 `describe` 与 `SKILL.md` 为准。
 
 | 命令 | 用途 |
 |---|---|
@@ -76,10 +117,10 @@ Skill 的实际发现方式取决于所用客户端；直接调用 Python 脚本
 
 ```bash
 python3.11 scripts/share.py verify
-python3.11 scripts/share.py build --output dist
+python3.11 scripts/share.py build --output dist/0.2.0
 ```
 
-`build` 输出独立 Skill ZIP、完整仓库源码 ZIP 和 `SHA256SUMS`，具体路径由 JSON 返回。分享独立 Skill ZIP 可让对方直接安装；分享源码 ZIP 可让对方检查代码并继续开发。根 `MANIFEST.sha256` 记录仓库发布文件哈希，Skill 自带自己的完整性清单，并保留原引擎的 `runtime/MANIFEST.sha256`。
+`build` 输出三个独立 Skill ZIP、完整仓库源码 ZIP 和 `SHA256SUMS`，具体路径由 JSON 返回。分享独立 Skill ZIP 可让对方直接安装；分享源码 ZIP 可让对方检查代码并继续开发。根 `MANIFEST.sha256` 记录仓库发布文件哈希，每个 Skill 自带完整性清单，并保留冻结运行时的 `runtime/MANIFEST.sha256`。Scenario Router 来源记录位于仓库根目录；另两个 Skill 自带来源记录。已发布的 v0.1.0 保持原样。
 
 哈希验证证明文件与记录一致，不能证明文件来源可信，也不会运行测试。接收者应先核对分享者通过可信渠道提供的校验值，再运行环境检查与校验。构建脚本仅打包清单中的文件，运行产物、个人数据、密钥和 Git 元数据不属于交付内容。
 
@@ -97,8 +138,8 @@ AI 复核默认 `--provider off`，只可为已合格的 E2B 候选增加否决�
 
 ## 仓库范围与来源
 
-本版只封装 Scenario Router，不包含 FinRobot 或其他二级研究项目。[SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) 记录引擎来源快照；`runtime/` 保留原始交付内容及其完整性清单，仓库包装层单独维护。
+本版覆盖当前目录的 Scenario Router 与 FinRobot 金融工具。根 [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) 记录 Scenario Router 来源，另两个 Skill 各有来源文件与修改说明。原项目保持不变；第三方派生代码与包装层分别记录。项目中的 Ego Browser 是通用浏览器依赖，继续使用其官方 Skill 与本机运行时，不复制浏览器应用或用户数据。
 
 本地验证记录见 [VALIDATION.md](VALIDATION.md)。远端各次提交的检查结果见仓库 Actions，按具体提交查看。
 
-当前未授予开源许可证。可在拥有代码和材料分享权利的范围内进行私有分享；公开发布或第三方再分发前，应由权利人明确许可证。创建或获得仓库访问权限本身不等于获得开源许可。
+本仓库公开可读。FinRobot 来源部分按其保留的 Apache-2.0 LICENSE/NOTICE 分发，详情见 [第三方归属](THIRD_PARTY_NOTICES.md)。自有包装层尚未另行授予开源许可证；仓库公开不改变各部分的许可归属。

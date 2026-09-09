@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "package_version": "0.2.0",
+  "source_project": "FinRobot",
+  "source_git_commit": "d221910096de87579b02f8f0674652bf1a175f51",
+  "source_state": "working-tree file snapshot; source hashes are authoritative",
+  "source_manifest_sha256": "e771d1d2b785963f0fa863783ec4c5728cc2047ca5c1471ae7f4cc846d0b4a2d",
+  "source_files": {
+    "LICENSE": "bbcb4226500b503737713f0c9a9da17efce56fa6989b9f0538071dcb60826af5",
+    "NOTICE": "d1da20e9e1e8a0f3189665c4f21cf35f0eba1a8a1432f95a734db0640e289346",
+    "TRADEMARK_POLICY.md": "28d544a54523e7119a7e4e29e17a2dd532e2c611b8f1991c591fb460dafc81f6",
+    "finrobot/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "finrobot/utils.py": "7d8b84b7d40c8a32f5854899d35f52bf25027efdf1957245799f4140aebec477",
+    "finrobot/data_source/__init__.py": "38cc7d74f31e5855cd7cf6122a2c74867f8cbffca4df83a29fd445126fd6c925",
+    "finrobot/data_source/yfinance_utils.py": "5a10ae0998376f54108bab618e781ee44ce57ae06503109a29e2de2600daa11b",
+    "finrobot/data_source/fmp_utils.py": "766da4e06a4096a12f5552af346dd5ebfd299fb3d20ba55fd861b4329d304b16",
+    "finrobot/data_source/finnhub_utils.py": "a25e2c93c5840263253d1f1940199f886f798595c86ee9a684628bec3e12901b",
+    "finrobot/data_source/sec_utils.py": "8be8664f05eb9d4d92be038d369db83ff28f8ab611d20f1796ddf2f4cb7be173",
+    "finrobot/data_source/reddit_utils.py": "f86d349f2e2ce527a261e1609b5d633a3a2b743a13b4bbccdad930d82b4368df",
+    "finrobot/data_source/finnlp_utils.py": "4a9b64242c0df64f62eaec085c0ec810af1f72eb2ac13233ef026044893c4c5a",
+    "finrobot/data_source/finance_data.py": "3e8c2e1c541dfbc20411137ebab4916ef66692e0ea346ce84d6ecb9e920a4e51",
+    "finrobot/functional/__init__.py": "51680ab70e0a220150dd6dbb919888d255462f7609bedd5bcf2f48e453f3f8a2",
+    "finrobot/functional/analyzer.py": "a7af9f74bca58c5105beb3a48b53622ae41cec4330e851d4702160833c5060d2",
+    "finrobot/functional/charting.py": "baaa51d19f01c7087ad4d264f2768e1fe709b89ba19132dc2ee96a96d223e6f1",
+    "finrobot/functional/quantitative.py": "1682d309d12e974e522dd9da3038e4aa2985ee39b49f0206fe45e5382da66de2",
+    "finrobot/functional/reportlab.py": "7c3269333ea03ad4c8804f6282da3f61ffa14977ab6cdff017c1208986612e30",
+    "finrobot/functional/text.py": "b608058a674df7d2e9d98a301ad6309448c14f0b0376b2c4d54f5dbf9f513514",
+    "finrobot/functional/rag.py": "ea2aaff52945172aceae5aa5f67eba7a6e943f30c661c5b74683ab8819c35e45",
+    "finrobot/functional/ragquery.py": "a050927cdca2f991a4a8779f7413730b29dccb69269ecd4ab8a4f83b72881a10"
+  },
+  "runtime_files_modified": false,
+  "license": "Apache-2.0 as stated in the copied LICENSE; upstream setup.py metadata is not included",
+  "excluded": [
+    "notebooks and outputs",
+    "reports",
+    "credentials and configuration files",
+    "agents orchestration and arbitrary code tools",
+    "earningsData.py hard-coded auth placeholder",
+    "filings and marker pipelines not called by this wrapper",
+    "setup.py conflicting license metadata"
+  ]
+}

@@ -1,0 +1,3792 @@
+{
+  "schema_version": "finrobot-tool-registry-v1",
+  "tools": [
+    {
+      "id": "analysis.analyze_balance_sheet",
+      "description": "Retrieve the balance sheet for the given ticker symbol with the related section of its 10-K report. Then return with an instruction on how to analyze the balance sheet.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.analyze_balance_sheet"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "analyze_balance_sheet",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.analyze_business_highlights",
+      "description": "Retrieve the business summary and related section of its 10-K report for the given ticker symbol. Then return with an instruction on how to describe the performance highlights per business of the company.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.analyze_business_highlights"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "analyze_business_highlights",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.analyze_cash_flow",
+      "description": "Retrieve the cash flow statement for the given ticker symbol with the related section of its 10-K report. Then return with an instruction on how to analyze the cash flow statement.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.analyze_cash_flow"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "analyze_cash_flow",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.analyze_company_description",
+      "description": "Retrieve the company description and related sections of its 10-K report for the given ticker symbol. Then return with an instruction on how to describe the company's industry, strengths, trends, and strategic initiatives.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.analyze_company_description"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "analyze_company_description",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.analyze_income_stmt",
+      "description": "Retrieve the income statement for the given ticker symbol with the related section of its 10-K report. Then return with an instruction on how to analyze the income statement.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.analyze_income_stmt"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "analyze_income_stmt",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.analyze_segment_stmt",
+      "description": "Retrieve the income statement and the related section of its 10-K report for the given ticker symbol. Then return with an instruction on how to create a segment analysis.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.analyze_segment_stmt"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "analyze_segment_stmt",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.get_competitors_analysis",
+      "description": "Analyze financial metrics differences between a company and its competitors. Prepare a prompt for analysis and save it to a file.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.get_competitors_analysis"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "get_competitors_analysis",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "competitors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+              "minLength": 1,
+              "maxLength": 20
+            },
+            "minItems": 1,
+            "maxItems": 20,
+            "description": "competitors company"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "competitors",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.get_key_data",
+      "description": "return key financial data used in annual report for the given ticker symbol and filing date",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.get_key_data"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "get_key_data",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "filing_date": {
+            "type": "string",
+            "format": "date",
+            "description": "the filing date of the financial report being analyzed"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "filing_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Uses current Yahoo info and historical prices together; upstream 52-week high/low calculations are inverted. Treat as unverified legacy diagnostics."
+      ]
+    },
+    {
+      "id": "analysis.get_risk_assessment",
+      "description": "Retrieve the risk factors for the given ticker symbol with the related section of its 10-K report. Then return with an instruction on how to summarize the top 3 key risks of the company.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.get_risk_assessment"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "get_risk_assessment",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "analysis.income_summarization",
+      "description": "With the income statement and segment analysis for the given ticker symbol. Then return with an instruction on how to synthesize these analyses into a single coherent paragraph.",
+      "source": {
+        "file": "runtime/finrobot/functional/analyzer.py",
+        "callable": "ReportAnalysisUtils.income_summarization"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.analyzer",
+      "class": "ReportAnalysisUtils",
+      "method": "income_summarization",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          },
+          "income_stmt_analysis": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "in-depth income statement analysis"
+          },
+          "segment_analysis": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "in-depth segment analysis"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear",
+          "income_stmt_analysis",
+          "segment_analysis"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY",
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "This upstream function assembles evidence and writing instructions; it does not itself call a model or produce verified financial analysis."
+      ]
+    },
+    {
+      "id": "backtrader.back_test",
+      "description": "Use the Backtrader library to backtest a trading strategy on historical stock data.",
+      "source": {
+        "file": "runtime/finrobot/functional/quantitative.py",
+        "callable": "BackTraderUtils.back_test"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.quantitative",
+      "class": "BackTraderUtils",
+      "method": "back_test",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "Ticker symbol of the stock (e.g., 'AAPL' for Apple)"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date of the historical data in 'YYYY-MM-DD' format"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "End date of the historical data in 'YYYY-MM-DD' format"
+          },
+          "strategy": {
+            "type": "string",
+            "enum": [
+              "SMA_CrossOver"
+            ],
+            "description": "BackTrader Strategy class to be backtested. Can be pre-defined or custom. Pre-defined options: 'SMA_CrossOver'. If custom, provide module path and class name as a string like 'my_module:TestStrategy'."
+          },
+          "strategy_params": {
+            "type": "object",
+            "properties": {
+              "fast": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+              },
+              "slow": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 1000
+              }
+            },
+            "additionalProperties": false,
+            "description": "Additional parameters to be passed to the strategy class formatted as json string. E.g. {'fast': 10, 'slow': 30} for SMACross.",
+            "default": {}
+          },
+          "sizer": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000,
+            "description": "Sizer used for backtesting. Can be a fixed number or a custom Sizer class. If input is integer, a corresponding fixed sizer will be applied. If custom, provide module path and class name as a string like 'my_module:TestSizer'."
+          },
+          "cash": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 1000000000000.0,
+            "description": "Initial cash amount for the backtest. Default to 10000.0",
+            "default": 10000.0
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "start_date",
+          "end_date",
+          "strategy"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "backtrader",
+            "distribution": "backtrader"
+          },
+          {
+            "module": "matplotlib",
+            "distribution": "matplotlib"
+          },
+          {
+            "module": "IPython",
+            "distribution": "ipython"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Only built-in SMA_CrossOver and optional fixed integer sizer are exposed. No custom module, indicator or arbitrary code.",
+        "Yahoo-price replay is exploratory, with no PIT universe, execution-cost or live-trading certification."
+      ]
+    },
+    {
+      "id": "chart.get_pe_eps_performance",
+      "description": "Plot the PE ratio and EPS performance of a company over the past n years.",
+      "source": {
+        "file": "runtime/finrobot/functional/charting.py",
+        "callable": "ReportChartUtils.get_pe_eps_performance"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.charting",
+      "class": "ReportChartUtils",
+      "method": "get_pe_eps_performance",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "Ticker symbol of the stock (e.g., 'AAPL' for Apple)"
+          },
+          "filing_date": {
+            "type": "string",
+            "format": "date",
+            "description": "filing date in 'YYYY-MM-DD' format"
+          },
+          "years": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 40,
+            "description": "number of years to search from, default to 4",
+            "default": 4
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "filing_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "matplotlib",
+            "distribution": "matplotlib"
+          },
+          {
+            "module": "mplfinance",
+            "distribution": "mplfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "chart.png"
+      },
+      "warnings": []
+    },
+    {
+      "id": "chart.get_share_performance",
+      "description": "Plot the stock performance of a company compared to the S&P 500 over the past year.",
+      "source": {
+        "file": "runtime/finrobot/functional/charting.py",
+        "callable": "ReportChartUtils.get_share_performance"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.charting",
+      "class": "ReportChartUtils",
+      "method": "get_share_performance",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "Ticker symbol of the stock (e.g., 'AAPL' for Apple)"
+          },
+          "filing_date": {
+            "type": "string",
+            "format": "date",
+            "description": "filing date in 'YYYY-MM-DD' format"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "filing_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "matplotlib",
+            "distribution": "matplotlib"
+          },
+          {
+            "module": "mplfinance",
+            "distribution": "mplfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "chart.png"
+      },
+      "warnings": []
+    },
+    {
+      "id": "chart.plot_stock_price_chart",
+      "description": "Plot a stock price chart using mplfinance for the specified stock and time period, and save the plot to a file.",
+      "source": {
+        "file": "runtime/finrobot/functional/charting.py",
+        "callable": "MplFinanceUtils.plot_stock_price_chart"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.charting",
+      "class": "MplFinanceUtils",
+      "method": "plot_stock_price_chart",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "Ticker symbol of the stock (e.g., 'AAPL' for Apple)"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date of the historical data in 'YYYY-MM-DD' format"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "End date of the historical data in 'YYYY-MM-DD' format"
+          },
+          "verbose": {
+            "type": "boolean",
+            "description": "Whether to print stock data to console. Default to False.",
+            "default": false
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "candle",
+              "ohlc",
+              "line",
+              "renko",
+              "pnf",
+              "hollow_and_filled"
+            ],
+            "description": "Type of the plot, should be one of 'candle','ohlc','line','renko','pnf','hollow_and_filled'. Default to 'candle'",
+            "default": "candle"
+          },
+          "style": {
+            "type": "string",
+            "enum": [
+              "default",
+              "classic",
+              "charles",
+              "yahoo",
+              "nightclouds",
+              "sas",
+              "blueskies",
+              "mike"
+            ],
+            "description": "Style of the plot, should be one of 'default','classic','charles','yahoo','nightclouds','sas','blueskies','mike'. Default to 'default'.",
+            "default": "default"
+          },
+          "mav": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 500
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 500
+                },
+                "minItems": 1,
+                "maxItems": 8
+              }
+            ],
+            "description": "Moving average window(s) to plot on the chart. Default to None."
+          },
+          "show_nontrading": {
+            "type": "boolean",
+            "description": "Whether to show non-trading days on the chart. Default to False.",
+            "default": false
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "matplotlib",
+            "distribution": "matplotlib"
+          },
+          {
+            "module": "mplfinance",
+            "distribution": "mplfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "chart.png"
+      },
+      "warnings": []
+    },
+    {
+      "id": "documents.earnings_transcript",
+      "description": "从固定 DiscountingCashFlows endpoint 获取指定季度财报电话会文本；认证只来自环境，保留原始日期且不自动更改。",
+      "source": {
+        "file": null,
+        "callable": "bounded replacement adapter"
+      },
+      "adapter": "earnings",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20
+          },
+          "year": {
+            "type": "integer",
+            "minimum": 1990,
+            "maximum": 2100
+          },
+          "quarter": {
+            "type": "string",
+            "enum": [
+              "Q1",
+              "Q2",
+              "Q3",
+              "Q4"
+            ]
+          }
+        },
+        "required": [
+          "ticker",
+          "year",
+          "quarter"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": [
+          "DCF_USERNAME",
+          "DCF_PASSWORD"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Endpoint availability and entitlement have not been live verified.",
+        "Replaces upstream earningsData.py hard-coded auth placeholder; no date rewriting."
+      ]
+    },
+    {
+      "id": "documents.get_data",
+      "description": "Legacy get_data capability; see blocking_reason and safe replacement.",
+      "source": {
+        "file": "runtime/finrobot/data_source/finance_data.py",
+        "callable": "get_data"
+      },
+      "adapter": null,
+      "status": "blocked",
+      "blocking_reason": "The upstream function eagerly imports unstructured, marker GPU pipelines and earningsData with embedded auth placeholder; it also uses hard-coded working directories. Use documents.earnings_transcript, documents.sec_archive or sec.download_10k_filing then rag.retrieve_local instead.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [
+            "unbounded original config; not exposed"
+          ],
+          "write": "blocked"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "documents.sec_archive",
+      "description": "下载明确指定的 SEC Archives HTML/TXT/PDF；HTML/TXT生成可检索文本与来源hash，PDF保留原文件。",
+      "source": {
+        "file": null,
+        "callable": "bounded replacement adapter"
+      },
+      "adapter": "sec_archive",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "sec-url",
+            "maxLength": 2048
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": [
+          "SEC_USER_AGENT"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnhub.get_basic_financials",
+      "description": "get latest basic financials for a designated company",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnhub_utils.py",
+        "callable": "FinnHubUtils.get_basic_financials"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnhub_utils",
+      "class": "FinnHubUtils",
+      "method": "get_basic_financials",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'assetTurnoverTTM', 'bookValue', 'cashRatio', 'currentRatio', 'ebitPerShare', 'eps', 'ev', 'fcfMargin', 'fcfPerShareTTM', 'grossMargin', 'inventoryTurnoverTTM', 'longtermDebtTotalAsset', 'longtermDebtTotalCapital', 'longtermDebtTotalEquity', 'netDebtToTotalCapital', 'netDebtToTotalEquity', 'netMargin', 'operatingMargin', 'payoutRatioTTM"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnhub",
+            "distribution": "finnhub-python"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FINNHUB_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnhub.get_basic_financials_history",
+      "description": "get basic financials history",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnhub_utils.py",
+        "callable": "FinnHubUtils.get_basic_financials_history"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnhub_utils",
+      "class": "FinnHubUtils",
+      "method": "get_basic_financials_history",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "freq": {
+            "type": "string",
+            "enum": [
+              "annual",
+              "quarterly"
+            ],
+            "description": "reporting frequency of the company's basic financials: annual / quarterly"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "start date of the search period for the company's basic financials, yyyy-mm-dd"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "end date of the search period for the company's basic financials, yyyy-mm-dd"
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'assetTurnoverTTM', 'bookValue', 'cashRatio', 'currentRatio', 'ebitPerShare', 'eps', 'ev', 'fcfMargin', 'fcfPerShareTTM', 'grossMargin', 'inventoryTurnoverTTM', 'longtermDebtTotalAsset', 'longtermDebtTotalCapital', 'longtermDebtTotalEquity', 'netDebtToTotalCapital', 'netDebtToTotalEquity', 'netMargin', 'operatingMargin', 'payoutRatioTTM"
+          }
+        },
+        "required": [
+          "symbol",
+          "freq",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnhub",
+            "distribution": "finnhub-python"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FINNHUB_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnhub.get_company_news",
+      "description": "retrieve market news related to designated company",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnhub_utils.py",
+        "callable": "FinnHubUtils.get_company_news"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnhub_utils",
+      "class": "FinnHubUtils",
+      "method": "get_company_news",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "start date of the search period for the company's basic financials, yyyy-mm-dd"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "end date of the search period for the company's basic financials, yyyy-mm-dd"
+          },
+          "max_news_num": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "description": "maximum number of news to return, default to 10",
+            "default": 10
+          }
+        },
+        "required": [
+          "symbol",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnhub",
+            "distribution": "finnhub-python"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FINNHUB_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnhub.get_company_profile",
+      "description": "get a company's profile information",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnhub_utils.py",
+        "callable": "FinnHubUtils.get_company_profile"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnhub_utils",
+      "class": "FinnHubUtils",
+      "method": "get_company_profile",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnhub",
+            "distribution": "finnhub-python"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FINNHUB_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.cnbc_news_download",
+      "description": "cnbc news download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.cnbc_news_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "cnbc_news_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Keyword to search in news stream"
+          },
+          "rounds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Number of rounds to search. Default to 1",
+            "default": 1
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'description', 'cn:lastPubDate', 'dateModified', 'cn:dateline', 'cn:branding', 'section', 'cn:type', 'author', 'cn:source', 'cn:subtype', 'duration', 'summary', 'expires', 'cn:sectionSubType', 'cn:contentClassification', 'pubdateunix', 'url', 'datePublished', 'cn:promoImage', 'cn:title', 'cn:keyword', 'cn:liveURL', 'brand', 'hint', 'hin",
+            "default": [
+              "author",
+              "datePublished",
+              "description",
+              "section",
+              "cn:title",
+              "summary"
+            ]
+          }
+        },
+        "required": [
+          "keyword"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.finnhub_news_download",
+      "description": "finnhub news download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.finnhub_news_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "finnhub_news_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date of the news to retrieve, YYYY-mm-dd"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "End date of the news to retrieve, YYYY-mm-dd"
+          },
+          "stock": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Stock symbol, e.g. AAPL"
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'category', 'datetime', 'headline', 'id', 'image', 'related', 'source', 'summary', 'url', 'content'. Default to ['headline', 'datetime', 'source', 'summary']",
+            "default": [
+              "headline",
+              "datetime",
+              "source",
+              "summary"
+            ]
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date",
+          "stock"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FINNHUB_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.investor_place_news_download",
+      "description": "investor place news download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.investor_place_news_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "investor_place_news_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Keyword to search in news stream"
+          },
+          "rounds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Number of rounds to search. Default to 1",
+            "default": 1
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'title', 'time', 'author', 'summary'. Default to ['title', 'time', 'author', 'summary']",
+            "default": [
+              "title",
+              "time",
+              "author",
+              "summary"
+            ]
+          }
+        },
+        "required": [
+          "keyword"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.sina_finance_news_download",
+      "description": "sina finance news download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.sina_finance_news_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "sina_finance_news_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date of the news to retrieve, YYYY-mm-dd"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "End date of the news to retrieve, YYYY-mm-dd"
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'mediaid', 'productid', 'summary', 'ctime', 'url', 'author', 'stitle', 'authoruid', 'wapsummary', 'images', 'level', 'keywords', 'mlids', 'wapurl', 'columnid', 'oid', 'img', 'subjectid', 'commentid', 'ipad_vid', 'vid', 'video_id', 'channelid', 'intime', 'video_time_length', 'categoryid', 'hqChart', 'intro', 'is_cre_manual', 'icons', 'mt",
+            "default": [
+              "title",
+              "author",
+              "content"
+            ]
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.stocktwits_social_media_download",
+      "description": "stocktwits social media download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.stocktwits_social_media_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "stocktwits_social_media_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Stock symbol, e.g. 'AAPL'"
+          },
+          "rounds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Number of rounds to search. Default to 1",
+            "default": 1
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'id', 'body', 'created_at', 'user', 'source', 'symbols', 'prices', 'mentioned_users', 'entities', 'liked_by_self', 'reshared_by_self', 'conversation', 'links', 'likes', 'reshare_message', 'structurable', 'reshares'. Default to ['created_at', 'body']",
+            "default": [
+              "created_at",
+              "body"
+            ]
+          }
+        },
+        "required": [
+          "stock"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.xueqiu_social_media_download",
+      "description": "xueqiu social media download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.xueqiu_social_media_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "xueqiu_social_media_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Stock symbol, e.g. 'AAPL'"
+          },
+          "rounds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Number of rounds to search. Default to 1",
+            "default": 1
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from blocked', 'blocking', 'canEdit', 'commentId', 'controversial', 'created_at', 'description', 'donate_count', 'donate_snowcoin', 'editable', 'expend', 'fav_count', 'favorited', 'flags', 'flagsObj', 'hot', 'id', 'is_answer', 'is_bonus', 'is_refused', 'is_reward', 'is_ss_multi_pic', 'legal_user_visible', 'like_count', 'liked', 'mark', 'pic'",
+            "default": [
+              "created_at",
+              "description",
+              "title",
+              "text",
+              "target",
+              "source"
+            ]
+          }
+        },
+        "required": [
+          "stock"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "finnlp.yicai_news_download",
+      "description": "yicai news download",
+      "source": {
+        "file": "runtime/finrobot/data_source/finnlp_utils.py",
+        "callable": "FinNLPUtils.yicai_news_download"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.finnlp_utils",
+      "class": "FinNLPUtils",
+      "method": "yicai_news_download",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Keyword to search in news stream"
+          },
+          "rounds": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Number of rounds to search. Default to 1",
+            "default": 1
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "List of column names of news to return, should be chosen from 'author','channelid','creationDate','desc','id','previewImage','source','tags','title','topics','typeo','url','weight'. Default to ['author', 'creationDate', 'desc' ,'source', 'title']",
+            "default": [
+              "author",
+              "creationDate",
+              "desc",
+              "source",
+              "title"
+            ]
+          }
+        },
+        "required": [
+          "keyword"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "finnlp",
+            "distribution": "finnlp"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "fmp.get_competitor_financial_metrics",
+      "description": "Get financial metrics for the company and its competitors.",
+      "source": {
+        "file": "runtime/finrobot/data_source/fmp_utils.py",
+        "callable": "FMPUtils.get_competitor_financial_metrics"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.fmp_utils",
+      "class": "FMPUtils",
+      "method": "get_competitor_financial_metrics",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "competitors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+              "minLength": 1,
+              "maxLength": 20
+            },
+            "minItems": 1,
+            "maxItems": 20,
+            "description": "list of competitor ticker symbols"
+          },
+          "years": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 40,
+            "description": "number of the years to search from, default to 4",
+            "default": 4
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "competitors"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Legacy FMP /api/v3 and /api/v4 endpoints are unchanged and may require grandfathered access; use the separate equity Skill stable adapter when applicable.",
+        "Provider results and upstream formulas are not independently authenticated or point-in-time validated.",
+        "Known upstream growth/FCF formulas are legacy calculations; independently recompute before relying on those fields."
+      ]
+    },
+    {
+      "id": "fmp.get_financial_metrics",
+      "description": "Get the financial metrics for a given stock for the last 'years' years",
+      "source": {
+        "file": "runtime/finrobot/data_source/fmp_utils.py",
+        "callable": "FMPUtils.get_financial_metrics"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.fmp_utils",
+      "class": "FMPUtils",
+      "method": "get_financial_metrics",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "years": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 40,
+            "description": "number of the years to search from, default to 4",
+            "default": 4
+          }
+        },
+        "required": [
+          "ticker_symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Legacy FMP /api/v3 and /api/v4 endpoints are unchanged and may require grandfathered access; use the separate equity Skill stable adapter when applicable.",
+        "Provider results and upstream formulas are not independently authenticated or point-in-time validated.",
+        "Known upstream growth/FCF formulas are legacy calculations; independently recompute before relying on those fields."
+      ]
+    },
+    {
+      "id": "fmp.get_historical_bvps",
+      "description": "Get the historical book value per share for a given stock on a given date",
+      "source": {
+        "file": "runtime/finrobot/data_source/fmp_utils.py",
+        "callable": "FMPUtils.get_historical_bvps"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.fmp_utils",
+      "class": "FMPUtils",
+      "method": "get_historical_bvps",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date",
+            "description": "date of the BVPS, should be 'yyyy-mm-dd'"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "target_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Legacy FMP /api/v3 and /api/v4 endpoints are unchanged and may require grandfathered access; use the separate equity Skill stable adapter when applicable.",
+        "Provider results and upstream formulas are not independently authenticated or point-in-time validated.",
+        "Nearest-date or wide-window selection can use later observations; unsuitable as a point-in-time reference."
+      ]
+    },
+    {
+      "id": "fmp.get_historical_market_cap",
+      "description": "Get the historical market capitalization for a given stock on a given date",
+      "source": {
+        "file": "runtime/finrobot/data_source/fmp_utils.py",
+        "callable": "FMPUtils.get_historical_market_cap"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.fmp_utils",
+      "class": "FMPUtils",
+      "method": "get_historical_market_cap",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "date of the market cap, should be 'yyyy-mm-dd'"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Legacy FMP /api/v3 and /api/v4 endpoints are unchanged and may require grandfathered access; use the separate equity Skill stable adapter when applicable.",
+        "Provider results and upstream formulas are not independently authenticated or point-in-time validated."
+      ]
+    },
+    {
+      "id": "fmp.get_sec_report",
+      "description": "Get the url and filing date of the 10-K report for a given stock and year",
+      "source": {
+        "file": "runtime/finrobot/data_source/fmp_utils.py",
+        "callable": "FMPUtils.get_sec_report"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.fmp_utils",
+      "class": "FMPUtils",
+      "method": "get_sec_report",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "year of the 10-K report, should be 'yyyy' or 'latest'. Default to 'latest'",
+            "default": "latest"
+          }
+        },
+        "required": [
+          "ticker_symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Legacy FMP /api/v3 and /api/v4 endpoints are unchanged and may require grandfathered access; use the separate equity Skill stable adapter when applicable.",
+        "Provider results and upstream formulas are not independently authenticated or point-in-time validated."
+      ]
+    },
+    {
+      "id": "fmp.get_target_price",
+      "description": "Get the target price for a given stock on a given date",
+      "source": {
+        "file": "runtime/finrobot/data_source/fmp_utils.py",
+        "callable": "FMPUtils.get_target_price"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.fmp_utils",
+      "class": "FMPUtils",
+      "method": "get_target_price",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "date of the target price, should be 'yyyy-mm-dd'"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Legacy FMP /api/v3 and /api/v4 endpoints are unchanged and may require grandfathered access; use the separate equity Skill stable adapter when applicable.",
+        "Provider results and upstream formulas are not independently authenticated or point-in-time validated.",
+        "Nearest-date or wide-window selection can use later observations; unsuitable as a point-in-time reference."
+      ]
+    },
+    {
+      "id": "rag.get_rag_function",
+      "description": "Legacy get_rag_function capability; see blocking_reason and safe replacement.",
+      "source": {
+        "file": "runtime/finrobot/functional/rag.py",
+        "callable": "get_rag_function"
+      },
+      "adapter": null,
+      "status": "blocked",
+      "blocking_reason": "The original accepts arbitrary AutoGen retrieve_config and returns a live Python closure/agent, with implicit embedding downloads. The JSON adapter exposes bounded rag.retrieve_local instead.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": true,
+        "filesystem": {
+          "read": [
+            "unbounded original config; not exposed"
+          ],
+          "write": "blocked"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "rag.rag_database_earnings_call",
+      "description": "Legacy rag_database_earnings_call capability; see blocking_reason and safe replacement.",
+      "source": {
+        "file": "runtime/finrobot/functional/ragquery.py",
+        "callable": "rag_database_earnings_call"
+      },
+      "adapter": null,
+      "status": "blocked",
+      "blocking_reason": "The original uses embedded-auth earnings downloader, implicit all-MiniLM model acquisition, fixed ./earnings-call-db and returns a Python closure. Use documents.earnings_transcript then rag.retrieve_local.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": true,
+        "filesystem": {
+          "read": [
+            "unbounded original config; not exposed"
+          ],
+          "write": "blocked"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "rag.rag_database_sec",
+      "description": "Legacy rag_database_sec capability; see blocking_reason and safe replacement.",
+      "source": {
+        "file": "runtime/finrobot/functional/ragquery.py",
+        "callable": "rag_database_sec"
+      },
+      "adapter": null,
+      "status": "blocked",
+      "blocking_reason": "The original SEC fetcher uses a hard-coded upstream contact identity; optional Markdown path also references emb_fn before assignment. It writes fixed Chroma directories and returns a closure. Use explicit SEC_USER_AGENT documents.sec_archive then rag.retrieve_local.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": true,
+        "filesystem": {
+          "read": [
+            "unbounded original config; not exposed"
+          ],
+          "write": "blocked"
+        }
+      },
+      "warnings": []
+    },
+    {
+      "id": "rag.retrieve_local",
+      "description": "对显式本地TXT/Markdown或documents.json执行确定性词项检索，返回片段、源hash与字符位置。无embedding或模型调用。",
+      "source": {
+        "file": null,
+        "callable": "bounded replacement adapter"
+      },
+      "adapter": "local_retrieval",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "local-document"
+            },
+            "minItems": 1,
+            "maxItems": 20
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000
+          },
+          "max_results": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 20,
+            "default": 5
+          },
+          "chunk_chars": {
+            "type": "integer",
+            "minimum": 200,
+            "maximum": 5000,
+            "default": 1200
+          }
+        },
+        "required": [
+          "paths",
+          "query"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": []
+      },
+      "permissions": {
+        "network": false,
+        "model": false,
+        "filesystem": {
+          "read": [
+            "explicit document paths"
+          ],
+          "write": "requested new output directory only"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": [
+        "Lexical retrieval is a bounded replacement, not the upstream embedding/Chroma RAG pipeline."
+      ]
+    },
+    {
+      "id": "reddit.get_reddit_posts",
+      "description": "Get Reddit posts from r/wallstreetbets & r/stocks & r/investing based on the search query and date range.",
+      "source": {
+        "file": "runtime/finrobot/data_source/reddit_utils.py",
+        "callable": "RedditUtils.get_reddit_posts"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.reddit_utils",
+      "class": "RedditUtils",
+      "method": "get_reddit_posts",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "Search query, e.g. 'AAPL OR Apple Inc OR #AAPL OR (Apple AND stock)'"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date in yyyy-mm-dd format"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "End date in yyyy-mm-dd format"
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "description": "Maximum number of posts to fetch, default to 1000",
+            "default": 1000
+          },
+          "selected_columns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "description": "Columns to contain in the result, should be chosen from 'created_utc', 'id', 'title', 'selftext', 'score', 'num_comments', 'url', default to ['created_utc', 'title', 'score', 'num_comments']",
+            "default": [
+              "created_utc",
+              "title",
+              "score",
+              "num_comments"
+            ]
+          }
+        },
+        "required": [
+          "query",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "praw",
+            "distribution": "praw"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "REDDIT_CLIENT_ID",
+          "REDDIT_CLIENT_SECRET"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "report.build_annual_report",
+      "description": "Aggregate a company's business_overview, market_position, operating_results, risk assessment, competitors analysis and share performance, PE & EPS performance charts all into a PDF report.",
+      "source": {
+        "file": "runtime/finrobot/functional/reportlab.py",
+        "callable": "ReportLabUtils.build_annual_report"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.reportlab",
+      "class": "ReportLabUtils",
+      "method": "build_annual_report",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "operating_results": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "a paragraph of text: the company's income summarization from its financial report"
+          },
+          "market_position": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "a paragraph of text: the company's current situation and end market (geography), major customers (blue chip or not), market share from its financial report, avoid similar sentences also generated in the business overview section, classify it into either of the two"
+          },
+          "business_overview": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "a paragraph of text: the company's description and business highlights from its financial report"
+          },
+          "risk_assessment": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "a paragraph of text: the company's risk assessment from its financial report"
+          },
+          "competitors_analysis": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20000,
+            "description": "a paragraph of text: the company's competitors analysis from its financial report and competitors' financial report"
+          },
+          "share_performance_image_path": {
+            "type": "string",
+            "format": "local-image",
+            "maxLength": 4096,
+            "description": "path to the share performance image"
+          },
+          "pe_eps_performance_image_path": {
+            "type": "string",
+            "format": "local-image",
+            "maxLength": 4096,
+            "description": "path to the PE and EPS performance image"
+          },
+          "filing_date": {
+            "type": "string",
+            "format": "date",
+            "description": "filing date of the analyzed financial report"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "operating_results",
+          "market_position",
+          "business_overview",
+          "risk_assessment",
+          "competitors_analysis",
+          "share_performance_image_path",
+          "pe_eps_performance_image_path",
+          "filing_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          },
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "numpy",
+            "distribution": "numpy"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          },
+          {
+            "module": "reportlab",
+            "distribution": "reportlab"
+          }
+        ],
+        "environment": [
+          "FMP_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [
+            "explicit local-image arguments"
+          ],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "report.pdf"
+      },
+      "warnings": []
+    },
+    {
+      "id": "sec.download_10k_filing",
+      "description": "Download the latest 10-K filing as htm for a given ticker within a given time period.",
+      "source": {
+        "file": "runtime/finrobot/data_source/sec_utils.py",
+        "callable": "SECUtils.download_10k_filing"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.sec_utils",
+      "class": "SECUtils",
+      "method": "download_10k_filing",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "start date of the 10-k file search range, in yyyy-mm-dd format"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "end date of the 10-k file search range, in yyyy-mm-dd format"
+          }
+        },
+        "required": [
+          "ticker",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_folder": "filings"
+      },
+      "warnings": []
+    },
+    {
+      "id": "sec.download_10k_pdf",
+      "description": "Download the latest 10-K filing as pdf for a given ticker within a given time period.",
+      "source": {
+        "file": "runtime/finrobot/data_source/sec_utils.py",
+        "callable": "SECUtils.download_10k_pdf"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.sec_utils",
+      "class": "SECUtils",
+      "method": "download_10k_pdf",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "start date of the 10-k file search range, in yyyy-mm-dd format"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "end date of the 10-k file search range, in yyyy-mm-dd format"
+          }
+        },
+        "required": [
+          "ticker",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_folder": "filings"
+      },
+      "warnings": []
+    },
+    {
+      "id": "sec.get_10k_metadata",
+      "description": "Search for 10-k filings within a given time period, and return the meta data of the latest one",
+      "source": {
+        "file": "runtime/finrobot/data_source/sec_utils.py",
+        "callable": "SECUtils.get_10k_metadata"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.sec_utils",
+      "class": "SECUtils",
+      "method": "get_10k_metadata",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "start date of the 10-k file search range, in yyyy-mm-dd format"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "end date of the 10-k file search range, in yyyy-mm-dd format"
+          }
+        },
+        "required": [
+          "ticker",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "sec.get_10k_section",
+      "description": "Get a specific section of a 10-K report from the SEC API.",
+      "source": {
+        "file": "runtime/finrobot/data_source/sec_utils.py",
+        "callable": "SECUtils.get_10k_section"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.sec_utils",
+      "class": "SECUtils",
+      "method": "get_10k_section",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker_symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "fyear": {
+            "type": "string",
+            "pattern": "(?:[12][0-9]{3}|latest)",
+            "description": "fiscal year of the 10-K report"
+          },
+          "section": {
+            "type": "string",
+            "enum": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "1A",
+              "1B",
+              "7A",
+              "9A",
+              "9B"
+            ],
+            "description": "Section of the 10-K report to extract, should be in [1, 1A, 1B, 2, 3, 4, 5, 6, 7, 7A, 8, 9, 9A, 9B, 10, 11, 12, 13, 14, 15]"
+          },
+          "report_address": {
+            "type": "string",
+            "format": "sec-url",
+            "maxLength": 2048,
+            "description": "URL of the 10-K report, if not specified, will get report url from fmp api"
+          }
+        },
+        "required": [
+          "ticker_symbol",
+          "fyear",
+          "section"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "requests",
+            "distribution": "requests"
+          },
+          {
+            "module": "sec_api",
+            "distribution": "sec-api"
+          },
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          }
+        ],
+        "environment": [
+          "SEC_API_KEY"
+        ]
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {
+        "save_path": "artifact.txt"
+      },
+      "warnings": [
+        "When report_address is omitted, FMP_API_KEY and legacy FMP filing lookup are also required."
+      ]
+    },
+    {
+      "id": "text.check_text_length",
+      "description": "Check if the length of the text is exceeds than the maximum length.",
+      "source": {
+        "file": "runtime/finrobot/functional/text.py",
+        "callable": "TextUtils.check_text_length"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.functional.text",
+      "class": "TextUtils",
+      "method": "check_text_length",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 1000000,
+            "description": "text to check"
+          },
+          "min_length": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000,
+            "description": "minimum length of the text, default to 0",
+            "default": 0
+          },
+          "max_length": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000,
+            "description": "maximum length of the text, default to 100000",
+            "default": 100000
+          }
+        },
+        "required": [
+          "text"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [],
+        "environment": []
+      },
+      "permissions": {
+        "network": false,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_analyst_recommendations",
+      "description": "Fetches the latest analyst recommendations and returns the most common recommendation and its count.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_analyst_recommendations"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_analyst_recommendations",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_balance_sheet",
+      "description": "Fetches and returns the latest balance sheet of the company as a DataFrame.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_balance_sheet"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_balance_sheet",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_cash_flow",
+      "description": "Fetches and returns the latest cash flow statement of the company as a DataFrame.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_cash_flow"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_cash_flow",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_company_info",
+      "description": "Fetches and returns company information as a DataFrame.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_company_info"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_company_info",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_income_stmt",
+      "description": "Fetches and returns the latest income statement of the company as a DataFrame.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_income_stmt"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_income_stmt",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_stock_data",
+      "description": "retrieve stock price data for designated ticker symbol",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_stock_data"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_stock_data",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "start date for retrieving stock price data, YYYY-mm-dd"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "end date for retrieving stock price data, YYYY-mm-dd"
+          }
+        },
+        "required": [
+          "symbol",
+          "start_date",
+          "end_date"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_stock_dividends",
+      "description": "Fetches and returns the latest dividends data as a DataFrame.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_stock_dividends"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_stock_dividends",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    },
+    {
+      "id": "yfinance.get_stock_info",
+      "description": "Fetches and returns latest stock information.",
+      "source": {
+        "file": "runtime/finrobot/data_source/yfinance_utils.py",
+        "callable": "YFinanceUtils.get_stock_info"
+      },
+      "adapter": "legacy",
+      "module": "finrobot.data_source.yfinance_utils",
+      "class": "YFinanceUtils",
+      "method": "get_stock_info",
+      "status": "wrapped",
+      "blocking_reason": null,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "pattern": "[A-Za-z0-9.^=_-]{1,20}",
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "ticker symbol"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "additionalProperties": false
+      },
+      "requires": {
+        "packages": [
+          {
+            "module": "pandas",
+            "distribution": "pandas"
+          },
+          {
+            "module": "yfinance",
+            "distribution": "yfinance"
+          }
+        ],
+        "environment": []
+      },
+      "permissions": {
+        "network": true,
+        "model": false,
+        "filesystem": {
+          "read": [],
+          "write": "requested new output directory only; transient caches in run staging"
+        }
+      },
+      "inject_outputs": {},
+      "warnings": []
+    }
+  ],
+  "excluded_nonfinancial": [
+    "CodingUtils.*",
+    "IPythonUtils.*",
+    "internal decorators, helpers and strategy/analyzer lifecycle hooks"
+  ],
+  "default_permissions": {
+    "network": false,
+    "model": false
+  },
+  "provenance": "SOURCE_PROVENANCE.json"
+}

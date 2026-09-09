@@ -1,0 +1,16 @@
+{
+  "financial_data": {
+    "ebitda": 36000000,
+    "free_cash_flow": 21600000,
+    "shares_outstanding": 10000000,
+    "current_price": 30
+  },
+  "target_multiple": 12,
+  "assumptions": {
+    "growth_rate_1_5": 0.1,
+    "growth_rate_6_10": 0.05,
+    "terminal_growth": 0.025,
+    "wacc": 0.1,
+    "projection_years": 10
+  }
+}

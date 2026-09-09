@@ -1,0 +1,3 @@
+# Supply a separately reviewed FinNLP distribution exposing the finnlp namespace.
+# Upstream did not lock that source; no ambiguous same-name package is auto-installed.
+pandas

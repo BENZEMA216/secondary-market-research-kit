@@ -12,3 +12,8 @@ results/
 *.db
 .DS_Store
 optional_validation_data/
+config.ini
+OAI_CONFIG_LIST
+*.ipynb
+output/
+test_output/

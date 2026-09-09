@@ -1,0 +1,39 @@
+{
+  "schema_version": "secondary-market-catalog-v1",
+  "package_version": "0.2.0",
+  "external_tools": [
+    {
+      "name": "ego-browser",
+      "scope": "来源项目使用的通用浏览器自动化 Skill；接收者另行安装",
+      "integration": "使用官方 Skill 与用户本机的 Ego Lite runtime；不将浏览器二进制、登录态或用户浏览数据复制到分享包",
+      "source": "citrolabs/ego-lite",
+      "kind": "external_host_dependency"
+    }
+  ],
+  "toolkits": [
+    {
+      "name": "scenario-router-research",
+      "title": "策略研究与回放",
+      "entry": "scripts/research.py",
+      "scope": "事件与反转策略、组合风控、本地paper、历史回放、公司材料复核",
+      "source": "scenario-router-research",
+      "default_mode": "offline"
+    },
+    {
+      "name": "equity-research-toolkit",
+      "title": "公司财务与研报",
+      "entry": "scripts/equity.py",
+      "scope": "FMP Stable数据、预测、同业、估值、敏感性、催化剂、新闻、图表、HTML/PDF研报",
+      "source": "FinRobot/finrobot_equity/core",
+      "default_mode": "offline; optional network/model capabilities require explicit flags"
+    },
+    {
+      "name": "market-data-toolkit",
+      "title": "市场数据与研究工具",
+      "entry": "scripts/tools.py",
+      "scope": "Yahoo Finance、FMP legacy、Finnhub、SEC、Reddit、FinNLP、研究材料、图表与固定策略回测",
+      "source": "FinRobot/finrobot/data_source + functional",
+      "default_mode": "offline; unsupported legacy capabilities are reported explicitly"
+    }
+  ]
+}

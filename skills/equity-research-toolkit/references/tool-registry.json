@@ -1,0 +1,2142 @@
+{
+  "schema_version": "equity-tool-registry-v1",
+  "tools": {
+    "data.income": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_income_statement",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "default_expression": "'annual'"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        }
+      ],
+      "description": "Fetches income statement data from FMP API."
+    },
+    "data.balance": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_balance_sheet",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "default_expression": "'annual'"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        }
+      ],
+      "description": "Fetches balance sheet data from FMP API."
+    },
+    "data.cash-flow": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_cash_flow_statement",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "default_expression": "'annual'"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        }
+      ],
+      "description": "Fetches cash flow statement data from FMP API."
+    },
+    "data.ratios": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_ratios_and_key_metrics",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "default_expression": "'annual'"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        }
+      ],
+      "description": "Fetches financial ratios and key metrics from FMP API."
+    },
+    "data.financials": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_comprehensive_financial_data",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "default_expression": "'annual'"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        }
+      ],
+      "description": "Fetches all three financial statements for a company."
+    },
+    "data.enterprise-value": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "fetch_fmp_enterprise_value",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "2000"
+        }
+      ],
+      "description": "Fetches historical enterprise value from Financial Modeling Prep API."
+    },
+    "data.profile": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_company_profile",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches comprehensive company profile data from FMP API."
+    },
+    "data.quote": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_current_price",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches the latest stock price from Financial Modeling Prep API."
+    },
+    "data.market-cap": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_market_cap",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches current market capitalization from FMP API."
+    },
+    "data.shares-float": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_shares_float",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches current float and outstanding share counts from FMP."
+    },
+    "data.analyst-target": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_target_price",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches the analyst consensus target price from FMP's Stable API."
+    },
+    "data.analyst-rating": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_fmp_analyst_rating",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches the current analyst consensus from FMP's Stable API."
+    },
+    "data.analyst-insights": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_analyst_insights",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches analyst rating and target price using FMP API."
+    },
+    "data.company-metrics": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_comprehensive_company_metrics",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches all key company metrics needed for equity report from FMP API."
+    },
+    "data.technical": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_technical_indicators",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "从 FMP 获取历史价格并计算 SMA50/200、RSI14、MACD、成交量信号。"
+    },
+    "data.news": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "get_company_news",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "days_back",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "50"
+        }
+      ],
+      "description": "Fetches recent company news from FMP API."
+    },
+    "data.peers": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "combine_peer_financial_data",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "tickers",
+          "required": true,
+          "type": "list[str]",
+          "default_expression": null
+        },
+        {
+          "name": "years_limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        }
+      ],
+      "description": "Combines EBITDA and EV/EBITDA for a list of peer tickers."
+    },
+    "data.volume": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "fetch_yfinance_volume",
+      "network": true,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "start_date",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "end_date",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Fetches historical trading volume data using yfinance."
+    },
+    "finance.peer-forecast": {
+      "kind": "function",
+      "module": "modules.market_data_api",
+      "function": "project_ebitda_for_peers",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "df_ebitda_historical",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "num_projection_years",
+          "required": false,
+          "type": "int",
+          "default_expression": "1"
+        }
+      ],
+      "description": "Projects EBITDA for future years based on average historical YoY growth."
+    },
+    "finance.historical": {
+      "kind": "function",
+      "module": "modules.financial_data_processor",
+      "function": "extract_historical_metrics_from_api_data",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "financial_data",
+          "required": true,
+          "type": "dict",
+          "default_expression": null
+        }
+      ],
+      "description": "Extracts and combines historical financial metrics from FMP API data."
+    },
+    "finance.forecast": {
+      "kind": "function",
+      "module": "modules.financial_data_processor",
+      "function": "calculate_growth_and_forecasts",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "df_historical",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "forecast_config",
+          "required": true,
+          "type": "dict",
+          "default_expression": null
+        }
+      ],
+      "description": "Appends growth rates and forecasts to the historical metrics DataFrame."
+    },
+    "news.enhanced": {
+      "kind": "function",
+      "module": "modules.news_integrator",
+      "function": "get_enhanced_company_news",
+      "network": true,
+      "model": false,
+      "credential": "fmp_api_key",
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "days_back",
+          "required": false,
+          "type": "int",
+          "default_expression": "5"
+        },
+        {
+          "name": "limit",
+          "required": false,
+          "type": "int",
+          "default_expression": "50"
+        }
+      ],
+      "description": "增强版公司新闻获取函数"
+    },
+    "text.section": {
+      "kind": "function",
+      "module": "modules.text_generator_agents",
+      "function": "generate_text_section",
+      "network": true,
+      "model": true,
+      "credential": "openai_api_key",
+      "parameters": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "Dict",
+          "default_expression": null
+        },
+        {
+          "name": "prompt_type",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "company_name",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "Generates a specific text section for the equity report using OpenAI Chat API."
+    },
+    "chart.revenue-ebitda": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_revenue_ebitda_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "analysis_df",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成 Revenue & EBITDA 组合图表（柱状图 + 折线图）"
+    },
+    "chart.ev-ebitda-peer": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_ev_ebitda_peer_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "peer_ev_ebitda_df",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "target_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成 EV/EBITDA 同行对比图表（分组柱状图或折线图）"
+    },
+    "chart.eps-pe": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_eps_pe_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "analysis_df",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成 EPS × PE 双折线趋势图"
+    },
+    "chart.margin-trend": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_margin_trend_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "analysis_df",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成利润率趋势图（多条折线）"
+    },
+    "chart.revenue-breakdown-pie": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_revenue_breakdown_pie",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "revenue_segments",
+          "required": true,
+          "type": "dict",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成收入构成饼状图"
+    },
+    "chart.stock-price": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_stock_price_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "price_data",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "default_expression": "'1Y'"
+        }
+      ],
+      "description": "生成股价走势图（含移动平均线）"
+    },
+    "chart.financial-radar": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_financial_radar_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "ratios",
+          "required": true,
+          "type": "dict",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "peer_ratios",
+          "required": false,
+          "type": "dict",
+          "default_expression": "None"
+        }
+      ],
+      "description": "生成财务比率雷达图"
+    },
+    "chart.time-series": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_time_series_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "metrics",
+          "required": true,
+          "type": "List[str]",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "title",
+          "required": false,
+          "type": "str",
+          "default_expression": "'Time Series Analysis'"
+        }
+      ],
+      "description": "生成时序分析图（多指标对比）"
+    },
+    "chart.sensitivity-heatmap": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_sensitivity_heatmap",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "sensitivity_data",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        },
+        {
+          "name": "title",
+          "required": false,
+          "type": "str",
+          "default_expression": "'Sensitivity Analysis'"
+        }
+      ],
+      "description": "生成敏感性分析热力图"
+    },
+    "chart.technical-indicators": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_technical_indicators_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "price_data",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成技术指标图（RSI和MACD）"
+    },
+    "chart.valuation-waterfall": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_valuation_waterfall_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "valuation_components",
+          "required": true,
+          "type": "dict",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成估值瀑布图"
+    },
+    "chart.quarterly-comparison": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_quarterly_comparison_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "quarterly_data",
+          "required": true,
+          "type": "pd.DataFrame",
+          "default_expression": null
+        },
+        {
+          "name": "metrics",
+          "required": true,
+          "type": "List[str]",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成季度财务对比图（同比/环比）"
+    },
+    "chart.cash-flow": {
+      "kind": "function",
+      "module": "modules.chart_generator",
+      "function": "generate_cash_flow_chart",
+      "network": false,
+      "model": false,
+      "credential": null,
+      "parameters": [
+        {
+          "name": "cash_flow_data",
+          "required": true,
+          "type": "dict",
+          "default_expression": null
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "default_expression": null
+        }
+      ],
+      "description": "生成现金流分析图（堆叠柱状图）"
+    },
+    "chart.enhanced-revenue-yoy": {
+      "kind": "enhanced_chart",
+      "method": "generate_revenue_yoy_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "income_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成收入YoY增长图表"
+    },
+    "chart.enhanced-ebitda-margin": {
+      "kind": "enhanced_chart",
+      "method": "generate_ebitda_margin_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "income_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成EBITDA利润率图表"
+    },
+    "chart.enhanced-gross-margin": {
+      "kind": "enhanced_chart",
+      "method": "generate_gross_margin_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "income_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成毛利率趋势图表"
+    },
+    "chart.enhanced-sga-ratio": {
+      "kind": "enhanced_chart",
+      "method": "generate_sga_ratio_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "income_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成SG&A费用比率图表"
+    },
+    "chart.enhanced-ltm-ebitda-margin": {
+      "kind": "enhanced_chart",
+      "method": "generate_ltm_ebitda_margin_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "income_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成LTM EBITDA利润率图表（滚动12个月）"
+    },
+    "chart.enhanced-relative-performance": {
+      "kind": "enhanced_chart",
+      "method": "generate_relative_performance_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "prices_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "benchmark_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        },
+        {
+          "name": "benchmark",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成相对表现图表（对比基准指数）"
+    },
+    "chart.enhanced-ev-ebitda-band": {
+      "kind": "enhanced_chart",
+      "method": "generate_ev_ebitda_band_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "key_metrics_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成EV/EBITDA估值区间图表（含均值和标准差）"
+    },
+    "chart.enhanced-p-fcf-band": {
+      "kind": "enhanced_chart",
+      "method": "generate_p_fcf_band_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "key_metrics_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成P/FCF估值区间图表（含均值和标准差）"
+    },
+    "chart.enhanced-peer-comparison": {
+      "kind": "enhanced_chart",
+      "method": "generate_peer_comparison_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "peer_data",
+          "required": true,
+          "type": "Dict[str, Dict]"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成同行比较图表"
+    },
+    "chart.enhanced-football-field": {
+      "kind": "enhanced_chart",
+      "method": "generate_football_field_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "valuation_data",
+          "required": true,
+          "type": "Dict[str, Dict]"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成估值足球场图"
+    },
+    "chart.enhanced-eps-pe": {
+      "kind": "enhanced_chart",
+      "method": "generate_eps_pe_chart",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "analysis_df",
+          "required": true,
+          "type": "pd.DataFrame"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "生成EPS × PE双折线趋势图"
+    },
+    "chart.enhanced-all-charts": {
+      "kind": "enhanced_chart",
+      "method": "generate_all_charts",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "financial_data",
+          "required": true,
+          "type": "Dict[str, Any]"
+        },
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "str"
+        },
+        {
+          "name": "benchmark",
+          "required": false,
+          "type": "str"
+        }
+      ],
+      "description": "生成所有11种图表"
+    },
+    "valuation.ev-ebitda": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "financial_data",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "peer_data",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "target_multiple",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "assumptions",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Original simplified valuation model; caller must supply values in consistent units."
+    },
+    "valuation.dcf": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "financial_data",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "peer_data",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "target_multiple",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "assumptions",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Original simplified valuation model; caller must supply values in consistent units."
+    },
+    "valuation.peer": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "financial_data",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "peer_data",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "target_multiple",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "assumptions",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Original simplified valuation model; caller must supply values in consistent units."
+    },
+    "valuation.combined": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "financial_data",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "peer_data",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "target_multiple",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "assumptions",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Original simplified valuation model; caller must supply values in consistent units."
+    },
+    "sensitivity.analyze": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "forecast",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "revenue_range",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "margin_range",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "steps",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Original scenario sensitivity; confidence intervals are heuristic, not calibrated probabilities."
+    },
+    "catalyst.analyze": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "news",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "company_name",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "financial_calendar",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Rule-based catalyst extraction from caller-supplied news."
+    },
+    "news.process": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "news",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "company_name",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "days_window",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Rule-based news categorization and importance scores from caller-supplied news."
+    },
+    "sentiment.snapshot": {
+      "kind": "builtin",
+      "network": true,
+      "model": false,
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "days_back",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Optional Adanos retail activity snapshot; explicit config required."
+    },
+    "report.html": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "JSON"
+        }
+      ],
+      "description": "Render original professional HTML from complete supplied report data."
+    },
+    "report.pdf": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "JSON"
+        }
+      ],
+      "description": "Render original professional PDF from complete supplied report data."
+    },
+    "pipeline.full": {
+      "kind": "builtin",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "ticker",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "company_name",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "forecast_config",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "valuation_inputs",
+          "required": true,
+          "type": "JSON"
+        },
+        {
+          "name": "financial_data",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "peer_data",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "news",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "text_sections",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "generate_text",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "pdf",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "years_limit",
+          "required": false,
+          "type": "JSON"
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "JSON"
+        }
+      ],
+      "description": "Validated financial data -> forecasts -> valuation -> sensitivity/catalysts -> charts -> text -> HTML/PDF. Omitted financial_data needs allow-network; generate_text needs both network/model flags."
+    },
+    "source.financial-analysis": {
+      "kind": "source_main",
+      "module": "generate_financial_analysis",
+      "network": true,
+      "model": false,
+      "parameters": [
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Stock ticker (e.g., AAPL)."
+        },
+        {
+          "name": "company_name",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Full company name (e.g., Apple Inc.)."
+        },
+        {
+          "name": "years_limit",
+          "required": false,
+          "type": "int",
+          "nargs": null,
+          "description": "Number of years of historical data to fetch."
+        },
+        {
+          "name": "output_csv_name",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Name for the output CSV file."
+        },
+        {
+          "name": "peer_tickers",
+          "required": false,
+          "type": "str",
+          "nargs": "*",
+          "description": "List of peer tickers for comparative analysis (e.g., GOOG MSFT)."
+        },
+        {
+          "name": "generate_text_sections",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable generation of text sections using OpenAI."
+        },
+        {
+          "name": "news_days_back",
+          "required": false,
+          "type": "int",
+          "nargs": null,
+          "description": "Number of days to look back for company news (default: 5)"
+        },
+        {
+          "name": "news_limit",
+          "required": false,
+          "type": "int",
+          "nargs": null,
+          "description": "Maximum number of news articles to fetch (default: 50)"
+        },
+        {
+          "name": "retail_sentiment_days_back",
+          "required": false,
+          "type": "int",
+          "nargs": null,
+          "description": "Number of days to look back for retail sentiment insights (default: 7)"
+        },
+        {
+          "name": "enable_sensitivity_analysis",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable sensitivity analysis for forecasts"
+        },
+        {
+          "name": "enable_catalyst_analysis",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable catalyst identification and analysis"
+        },
+        {
+          "name": "enable_enhanced_news",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable enhanced news integration with categorization"
+        },
+        {
+          "name": "revenue_growth_2025",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Revenue growth assumption for 2025E (default: 5%)"
+        },
+        {
+          "name": "revenue_growth_2026",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Revenue growth assumption for 2026E (default: 6%)"
+        },
+        {
+          "name": "revenue_growth_2027",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Revenue growth assumption for 2027E (default: 4%)"
+        },
+        {
+          "name": "margin_improvement",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Annual margin improvement assumption (default: 1%)"
+        },
+        {
+          "name": "sga_margin_improvement",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "SG&A margin change assumption (default: -0.5% efficiency gain)"
+        },
+        {
+          "name": "period",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Data period (annual or quarterly)"
+        }
+      ],
+      "description": "Original main entrypoint with controlled output/config, offline flags, strict artifact checks. Financial main retains fixed 2025E-2027E forecasts; pipeline.full supports caller-supplied years."
+    },
+    "source.html-report": {
+      "kind": "source_main",
+      "module": "create_equity_report",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Stock ticker."
+        },
+        {
+          "name": "company_name",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Full company name."
+        },
+        {
+          "name": "analysis_csv",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to the financial_metrics_and_forecasts.csv file."
+        },
+        {
+          "name": "ratios_csv",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to the ratios_raw_data.csv file."
+        },
+        {
+          "name": "tagline_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the report tagline."
+        },
+        {
+          "name": "company_overview_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the company overview."
+        },
+        {
+          "name": "investment_overview_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the investment overview."
+        },
+        {
+          "name": "valuation_overview_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the valuation section."
+        },
+        {
+          "name": "risks_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the risks section."
+        },
+        {
+          "name": "competitor_analysis_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the competitor analysis section."
+        },
+        {
+          "name": "major_takeaways_file",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the major takeaways section."
+        },
+        {
+          "name": "news_summary_file",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a text file for the news summary section (optional)."
+        },
+        {
+          "name": "report_date",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Date for the report (Eastern Time)."
+        },
+        {
+          "name": "html_report_prefix",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Prefix for output HTML filenames."
+        },
+        {
+          "name": "analyst_names",
+          "required": false,
+          "type": "str",
+          "nargs": "*",
+          "description": "List of analyst names."
+        },
+        {
+          "name": "analyst_emails",
+          "required": false,
+          "type": "str",
+          "nargs": "*",
+          "description": "List of analyst emails."
+        },
+        {
+          "name": "research_source",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Source of the research."
+        },
+        {
+          "name": "data_source_text",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Text for data sources."
+        },
+        {
+          "name": "disclaimer_text",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Disclaimer text."
+        },
+        {
+          "name": "closing_price_date",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Date of the share price (Eastern Time)."
+        },
+        {
+          "name": "share_price",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Current share price (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "target_price",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "12-month target price (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "rating",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Analyst rating (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "market_cap",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Market cap in billions (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "volume",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Average daily volume in millions (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "fwd_pe",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Forward P/E ratio (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "pb_ratio",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": "Price to Book ratio (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "dividend_yield",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Dividend yield (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "free_float",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Free float percentage (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "roe",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Return on Equity (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "net_debt_to_equity",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Net Debt to Equity ratio (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "sector",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Company sector (will be auto-fetched if not provided)."
+        },
+        {
+          "name": "logo_image_path",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to the logo image."
+        },
+        {
+          "name": "revenue_chart_path",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a pre-generated revenue/EBITDA chart."
+        },
+        {
+          "name": "ev_ebitda_chart_path",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to a pre-generated EV/EBITDA peer comparison chart."
+        },
+        {
+          "name": "peer_ebitda_csv",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to peer_ebitda_comparison.csv."
+        },
+        {
+          "name": "peer_ev_ebitda_csv",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to peer_ev_ebitda_comparison.csv."
+        },
+        {
+          "name": "skip_auto_fetch",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Skip automatic fetching of market data from FMP API."
+        },
+        {
+          "name": "enable_text_regeneration",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable AI text regeneration if content quality is poor."
+        },
+        {
+          "name": "enable_enhanced_charts",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable enhanced chart generation with 11 professional chart types."
+        },
+        {
+          "name": "enable_valuation_analysis",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Enable multi-method valuation analysis."
+        },
+        {
+          "name": "sensitivity_analysis_file",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to sensitivity analysis JSON file."
+        },
+        {
+          "name": "catalyst_analysis_file",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to catalyst analysis JSON file."
+        },
+        {
+          "name": "enhanced_news_file",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to enhanced news JSON file."
+        },
+        {
+          "name": "retail_sentiment_file",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Path to retail sentiment JSON file."
+        }
+      ],
+      "description": "Original main entrypoint with controlled output/config, offline flags, strict artifact checks. Financial main retains fixed 2025E-2027E forecasts; pipeline.full supports caller-supplied years."
+    },
+    "source.pdf-report": {
+      "kind": "source_main",
+      "module": "generate_pdf_report",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Stock ticker symbol (e.g., AAPL)"
+        },
+        {
+          "name": "company_name",
+          "required": true,
+          "type": "str",
+          "nargs": null,
+          "description": "Full company name (e.g., 'Apple Inc.')"
+        },
+        {
+          "name": "analysis_dir",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Directory containing analysis data files"
+        },
+        {
+          "name": "report_date",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": "Report date (e.g., 'November 2025')"
+        },
+        {
+          "name": "share_price",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": null
+        },
+        {
+          "name": "target_price",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": null
+        },
+        {
+          "name": "rating",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": null
+        },
+        {
+          "name": "market_cap",
+          "required": false,
+          "type": "float",
+          "nargs": null,
+          "description": null
+        },
+        {
+          "name": "sector",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": null
+        },
+        {
+          "name": "skip_market_fetch",
+          "required": false,
+          "type": "bool",
+          "nargs": null,
+          "description": "Skip fetching market data from API"
+        },
+        {
+          "name": "analyst_names",
+          "required": false,
+          "type": "str",
+          "nargs": "*",
+          "description": null
+        },
+        {
+          "name": "research_source",
+          "required": false,
+          "type": "str",
+          "nargs": null,
+          "description": null
+        }
+      ],
+      "description": "Original main entrypoint with controlled output/config, offline flags, strict artifact checks. Financial main retains fixed 2025E-2027E forecasts; pipeline.full supports caller-supplied years."
+    },
+    "text.enhanced.executive-summary": {
+      "kind": "enhanced_text",
+      "method": "generate_executive_summary",
+      "network": true,
+      "model": true,
+      "parameters": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "Dict"
+        }
+      ],
+      "description": "生成执行摘要；模型失败或fallback严格拒绝"
+    },
+    "text.enhanced.forecast-methodology": {
+      "kind": "enhanced_text",
+      "method": "generate_forecast_methodology",
+      "network": true,
+      "model": true,
+      "parameters": [
+        {
+          "name": "forecast_config",
+          "required": true,
+          "type": "Dict"
+        }
+      ],
+      "description": "生成预测方法论说明；模型失败或fallback严格拒绝"
+    },
+    "text.enhanced.catalyst-analysis": {
+      "kind": "enhanced_text",
+      "method": "generate_catalyst_analysis",
+      "network": true,
+      "model": true,
+      "parameters": [
+        {
+          "name": "catalysts",
+          "required": true,
+          "type": "List[Dict]"
+        }
+      ],
+      "description": "生成催化剂分析文本；模型失败或fallback严格拒绝"
+    },
+    "text.enhanced.valuation-analysis": {
+      "kind": "enhanced_text",
+      "method": "generate_valuation_analysis",
+      "network": true,
+      "model": true,
+      "parameters": [
+        {
+          "name": "valuation_data",
+          "required": true,
+          "type": "Dict"
+        }
+      ],
+      "description": "生成估值分析文本；模型失败或fallback严格拒绝"
+    },
+    "text.enhanced.investment-recommendation": {
+      "kind": "enhanced_text",
+      "method": "generate_investment_recommendation",
+      "network": true,
+      "model": true,
+      "parameters": [
+        {
+          "name": "analysis_data",
+          "required": true,
+          "type": "Dict"
+        }
+      ],
+      "description": "生成投资建议；模型失败或fallback严格拒绝"
+    },
+    "text.enhanced.section-summary": {
+      "kind": "enhanced_text",
+      "method": "generate_section_summary",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "section_content",
+          "required": true,
+          "type": "str"
+        },
+        {
+          "name": "section_title",
+          "required": false,
+          "type": "str"
+        }
+      ],
+      "description": "生成章节小结；只调用本地方法，不初始化模型客户端"
+    },
+    "text.enhanced.risk-factors": {
+      "kind": "enhanced_text",
+      "method": "generate_risk_factors",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "risks",
+          "required": true,
+          "type": "List[Dict]"
+        }
+      ],
+      "description": "生成风险因素分析；只调用本地方法，不初始化模型客户端"
+    },
+    "text.enhanced.format-data-reference": {
+      "kind": "enhanced_text",
+      "method": "format_data_reference",
+      "network": false,
+      "model": false,
+      "parameters": [
+        {
+          "name": "value",
+          "required": true,
+          "type": "Any"
+        },
+        {
+          "name": "metric",
+          "required": true,
+          "type": "str"
+        },
+        {
+          "name": "source",
+          "required": true,
+          "type": "str"
+        },
+        {
+          "name": "date",
+          "required": false,
+          "type": "str"
+        }
+      ],
+      "description": "格式化数据引用；只调用本地方法，不初始化模型客户端"
+    },
+    "text.agent-section": {
+      "kind": "agent_manager",
+      "network": true,
+      "model": true,
+      "parameters": [
+        {
+          "name": "data",
+          "required": true,
+          "type": "Dict"
+        },
+        {
+          "name": "text_type",
+          "required": true,
+          "type": "str",
+          "choices": [
+            "tagline",
+            "company_overview",
+            "investment_overview",
+            "valuation_overview",
+            "risks",
+            "competitor_analysis",
+            "major_takeaways",
+            "news_summary"
+          ]
+        },
+        {
+          "name": "company_name",
+          "required": true,
+          "type": "str"
+        },
+        {
+          "name": "company_ticker",
+          "required": true,
+          "type": "str"
+        }
+      ],
+      "description": "Original EquityResearchAgentManager and eight typed agents, explicit SDK model/client, tracing disabled, no tools/handoffs, strict output-field checks."
+    }
+  }
+}

@@ -1,0 +1,352 @@
+{
+  "schema_version": "secondary-research-provenance-v1",
+  "source_project": "FinRobot",
+  "source_repository": "https://github.com/AI4Finance-Foundation/FinRobot",
+  "source_revision": "d221910096de87579b02f8f0674652bf1a175f51",
+  "source_checkout_dirty": true,
+  "source_manifest_sha256": "f8f5b38c0d464c8700fd23fcaf21f770a92c600e92ed660b17ff44c2ee4d3ba0",
+  "license": "Apache-2.0; authoritative source LICENSE and NOTICE retained. Upstream setup.py metadata inconsistency is not adopted.",
+  "attribution": "Copyright 2024-2026 AI4Finance Foundation. Derivative research adapter, not official FinRobot.",
+  "local_modified_files": [
+    "finrobot_equity/core/src/generate_financial_analysis.py",
+    "finrobot_equity/core/src/modules/common_utils.py",
+    "finrobot_equity/core/src/modules/fmp_client.py",
+    "finrobot_equity/core/src/modules/market_data_api.py",
+    "finrobot_equity/core/src/modules/news_integrator.py",
+    "finrobot_equity/core/src/modules/text_generator_agents.py"
+  ],
+  "excluded": [
+    "config.ini and original config example",
+    "notebooks",
+    "web app and databases",
+    "user reports and generated output",
+    "private assets",
+    "credentials"
+  ],
+  "files": [
+    {
+      "source_path": "finrobot_equity/core/src/create_equity_report.py",
+      "runtime_path": "core/src/create_equity_report.py",
+      "source_sha256": "af1c3e298dfc099caad803b9587d131983a7a173bf37303491a1baedfa9ad7f6",
+      "distribution_sha256": "af1c3e298dfc099caad803b9587d131983a7a173bf37303491a1baedfa9ad7f6",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/generate_financial_analysis.py",
+      "runtime_path": "core/src/generate_financial_analysis.py",
+      "source_sha256": "fc2e1ed42fd756d5014846a1a34ea9c4c66ea93cd00fa54139afb8fcf1c81d42",
+      "distribution_sha256": "4e49b072108ad37c657a079ae2b7f407c8881c4c0b2bfdb172bd919798d65c16",
+      "local_modified": true,
+      "source_status": "modified",
+      "distribution_change": "Added modification notice only"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/generate_pdf_report.py",
+      "runtime_path": "core/src/generate_pdf_report.py",
+      "source_sha256": "0ab0e920b3652b7636358a2fe1ff84e6bcae9f4f5a1a59c458acee1e3c91d4a6",
+      "distribution_sha256": "0ab0e920b3652b7636358a2fe1ff84e6bcae9f4f5a1a59c458acee1e3c91d4a6",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/catalyst_analyzer.py",
+      "runtime_path": "core/src/modules/catalyst_analyzer.py",
+      "source_sha256": "65a4ebba92f7ee98944cbe01b0b9c30feb334a5ed344e50100cac0e08416e530",
+      "distribution_sha256": "65a4ebba92f7ee98944cbe01b0b9c30feb334a5ed344e50100cac0e08416e530",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/chart_generator.py",
+      "runtime_path": "core/src/modules/chart_generator.py",
+      "source_sha256": "2eae6fb9dc7de0dd850654279de9e68549c83bf859d244d437f4503bffc583c0",
+      "distribution_sha256": "2eae6fb9dc7de0dd850654279de9e68549c83bf859d244d437f4503bffc583c0",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/common_utils.py",
+      "runtime_path": "core/src/modules/common_utils.py",
+      "source_sha256": "567e74f416ea675c81810d3c8b37df85cf53a382c26296081e52004d32ac2d69",
+      "distribution_sha256": "92661925d960a5135302691e7bfc5adb42fa8d3825b84fc1da17c4c8807b1f0b",
+      "local_modified": true,
+      "source_status": "modified",
+      "distribution_change": "Added modification notice only"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/enhanced_chart_generator.py",
+      "runtime_path": "core/src/modules/enhanced_chart_generator.py",
+      "source_sha256": "f70b8b31133c5ff9287f09c4b10758d1ce2e1a5034b7c7f50e3010ad27d3b2b4",
+      "distribution_sha256": "f70b8b31133c5ff9287f09c4b10758d1ce2e1a5034b7c7f50e3010ad27d3b2b4",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/enhanced_text_generator.py",
+      "runtime_path": "core/src/modules/enhanced_text_generator.py",
+      "source_sha256": "e09107b59bbb5f65423a30ab475aecf84f36d934e0d5750e26656ed76daace97",
+      "distribution_sha256": "e09107b59bbb5f65423a30ab475aecf84f36d934e0d5750e26656ed76daace97",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/__init__.py",
+      "runtime_path": "core/src/modules/equity_agents/__init__.py",
+      "source_sha256": "c2fea11628f34dffd47615cfe29a8a60b9d5c3f41ed0b040bb20aaebc078fc96",
+      "distribution_sha256": "c2fea11628f34dffd47615cfe29a8a60b9d5c3f41ed0b040bb20aaebc078fc96",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/agent_manager.py",
+      "runtime_path": "core/src/modules/equity_agents/agent_manager.py",
+      "source_sha256": "fc334c2a35ea34629d90f133134172f9a4cb64f420248a2d33893eaf4046f856",
+      "distribution_sha256": "fc334c2a35ea34629d90f133134172f9a4cb64f420248a2d33893eaf4046f856",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/company_overview_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/company_overview_agent.py",
+      "source_sha256": "f2678311f6fa5741216dd4c13153f8d81367d615d27a04428f070cb25c44abaf",
+      "distribution_sha256": "f2678311f6fa5741216dd4c13153f8d81367d615d27a04428f070cb25c44abaf",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/competitor_analysis_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/competitor_analysis_agent.py",
+      "source_sha256": "ccc21dced3c850a7cb8bba3c6256c27045062757e24dad49f6ad6b12c0c928bf",
+      "distribution_sha256": "ccc21dced3c850a7cb8bba3c6256c27045062757e24dad49f6ad6b12c0c928bf",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/investment_overview_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/investment_overview_agent.py",
+      "source_sha256": "2bb1e9d5b43f5d6716ae0116df403fbba242a4489ba890fb549f7626dc078c49",
+      "distribution_sha256": "2bb1e9d5b43f5d6716ae0116df403fbba242a4489ba890fb549f7626dc078c49",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/major_takeaways_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/major_takeaways_agent.py",
+      "source_sha256": "47bf4b4e16fc0c308bbc4d42986bba696f1de34ecc3c8ab65f1718e26d5a6081",
+      "distribution_sha256": "47bf4b4e16fc0c308bbc4d42986bba696f1de34ecc3c8ab65f1718e26d5a6081",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/news_summary_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/news_summary_agent.py",
+      "source_sha256": "ebb0a705d26ed185b7cdaed21d6bd202bb83e6a968b890ed1957f0c22f77b8fb",
+      "distribution_sha256": "ebb0a705d26ed185b7cdaed21d6bd202bb83e6a968b890ed1957f0c22f77b8fb",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/risks_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/risks_agent.py",
+      "source_sha256": "cfcf9793a184dfa55cc6e40a4444a9ce7848a5045285c0abadcf06d9e20c87b0",
+      "distribution_sha256": "cfcf9793a184dfa55cc6e40a4444a9ce7848a5045285c0abadcf06d9e20c87b0",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/tagline_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/tagline_agent.py",
+      "source_sha256": "c188128e56329174dcac041aa0a6187ae79b078004758ba39f0ed79dc62203bc",
+      "distribution_sha256": "c188128e56329174dcac041aa0a6187ae79b078004758ba39f0ed79dc62203bc",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/equity_agents/valuation_overview_agent.py",
+      "runtime_path": "core/src/modules/equity_agents/valuation_overview_agent.py",
+      "source_sha256": "c3d02d5c07c0498b1e0e892ff0ddac88327f2efa6c39db64520a4607dda2f092",
+      "distribution_sha256": "c3d02d5c07c0498b1e0e892ff0ddac88327f2efa6c39db64520a4607dda2f092",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/financial_data_processor.py",
+      "runtime_path": "core/src/modules/financial_data_processor.py",
+      "source_sha256": "0cfc251b8f8a1fba8dc16ba1ca52d6eb92ccf160a5bc881c24adfa885425c726",
+      "distribution_sha256": "0cfc251b8f8a1fba8dc16ba1ca52d6eb92ccf160a5bc881c24adfa885425c726",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/fmp_client.py",
+      "runtime_path": "core/src/modules/fmp_client.py",
+      "source_sha256": "610c5272a4edb93108bebe3eb7e2c7d03d448e21977e18dd0b2db0783ab38f2c",
+      "distribution_sha256": "21a660ac65808c3b9e3cfedea38b4924e7e758caffc1e2dfa759a43b8c94dcda",
+      "local_modified": true,
+      "source_status": "untracked",
+      "distribution_change": "Added modification notice only"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/html_renderer.py",
+      "runtime_path": "core/src/modules/html_renderer.py",
+      "source_sha256": "b1345905d5f9e97dc4fbc50baf2c2de67b46be9c3de6e77cc1990e36d6a83179",
+      "distribution_sha256": "b1345905d5f9e97dc4fbc50baf2c2de67b46be9c3de6e77cc1990e36d6a83179",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/html_template_professional.py",
+      "runtime_path": "core/src/modules/html_template_professional.py",
+      "source_sha256": "0c3f17ffed61f3e7add079e90ecd3d451e4ea3518404a42dce976c5cd1941462",
+      "distribution_sha256": "0c3f17ffed61f3e7add079e90ecd3d451e4ea3518404a42dce976c5cd1941462",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/market_data_api.py",
+      "runtime_path": "core/src/modules/market_data_api.py",
+      "source_sha256": "de5f7877c6dfd16dc32f5fbcf80f5627c802b03ea7dfc32d2dc1be72b8ab1f1f",
+      "distribution_sha256": "706e08c8df90c197b8b76359da5ad1d4067f06c53b603bf13e17574b64ecec08",
+      "local_modified": true,
+      "source_status": "modified",
+      "distribution_change": "Added modification notice only"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/news_integrator.py",
+      "runtime_path": "core/src/modules/news_integrator.py",
+      "source_sha256": "16f55814a423e6ceebfa55db4706f8e139449ce5bf45f2d9719f350dc0a480e4",
+      "distribution_sha256": "65cc678c15dc7ca215f27c8dc4fdc12a66f48cea04949b9d82fb24e853ae88c9",
+      "local_modified": true,
+      "source_status": "modified",
+      "distribution_change": "Added modification notice only"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/pdf_generator.py",
+      "runtime_path": "core/src/modules/pdf_generator.py",
+      "source_sha256": "5da8037419c5da6f764db918883adaa3de885149151b8d72f0aad526178e8ef6",
+      "distribution_sha256": "5da8037419c5da6f764db918883adaa3de885149151b8d72f0aad526178e8ef6",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/professional_pdf_report.py",
+      "runtime_path": "core/src/modules/professional_pdf_report.py",
+      "source_sha256": "1527a83e7e9a3b85d9ba364266994716089bc8e99125f50e77c1cedface7237d",
+      "distribution_sha256": "1527a83e7e9a3b85d9ba364266994716089bc8e99125f50e77c1cedface7237d",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/report_data_loader.py",
+      "runtime_path": "core/src/modules/report_data_loader.py",
+      "source_sha256": "ca9590d1a83ebe9c64a1667d490ae409c9585fee9496c9575aa27276b2e3d5bb",
+      "distribution_sha256": "ca9590d1a83ebe9c64a1667d490ae409c9585fee9496c9575aa27276b2e3d5bb",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/report_structure.py",
+      "runtime_path": "core/src/modules/report_structure.py",
+      "source_sha256": "cb1c786e323cc8e481811cd78df6594667fadb31a6e915c0da6b6ba0e9bf5662",
+      "distribution_sha256": "cb1c786e323cc8e481811cd78df6594667fadb31a6e915c0da6b6ba0e9bf5662",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/retail_sentiment_client.py",
+      "runtime_path": "core/src/modules/retail_sentiment_client.py",
+      "source_sha256": "1e744cd0498dcdd03183652da2f0170da895791a523a85b75e705cde3474ff53",
+      "distribution_sha256": "1e744cd0498dcdd03183652da2f0170da895791a523a85b75e705cde3474ff53",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/sensitivity_analyzer.py",
+      "runtime_path": "core/src/modules/sensitivity_analyzer.py",
+      "source_sha256": "edc42f04d39361d20d130595d8bdde506da6a42e4dfead180d427471728cfa34",
+      "distribution_sha256": "edc42f04d39361d20d130595d8bdde506da6a42e4dfead180d427471728cfa34",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/text_generator_agents.py",
+      "runtime_path": "core/src/modules/text_generator_agents.py",
+      "source_sha256": "aad361d7963bbfbf035fdd225f404c7d8c2705d425aa3d89e705ebc23bb391bb",
+      "distribution_sha256": "626beb43d847046b9a3be191eb39bcf67838edfa685184e2e085f9bb0a535a7f",
+      "local_modified": true,
+      "source_status": "modified",
+      "distribution_change": "Added modification notice only"
+    },
+    {
+      "source_path": "finrobot_equity/core/src/modules/valuation_engine.py",
+      "runtime_path": "core/src/modules/valuation_engine.py",
+      "source_sha256": "3256aa3bfc5aa7378a904696930ab4437c752f028a1e16a253f654b7e22a54b0",
+      "distribution_sha256": "3256aa3bfc5aa7378a904696930ab4437c752f028a1e16a253f654b7e22a54b0",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "LICENSE",
+      "runtime_path": "LICENSE",
+      "source_sha256": "bbcb4226500b503737713f0c9a9da17efce56fa6989b9f0538071dcb60826af5",
+      "distribution_sha256": "bbcb4226500b503737713f0c9a9da17efce56fa6989b9f0538071dcb60826af5",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "NOTICE",
+      "runtime_path": "NOTICE",
+      "source_sha256": "d1da20e9e1e8a0f3189665c4f21cf35f0eba1a8a1432f95a734db0640e289346",
+      "distribution_sha256": "d1da20e9e1e8a0f3189665c4f21cf35f0eba1a8a1432f95a734db0640e289346",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "TRADEMARK_POLICY.md",
+      "runtime_path": "TRADEMARK_POLICY.md",
+      "source_sha256": "28d544a54523e7119a7e4e29e17a2dd532e2c611b8f1991c591fb460dafc81f6",
+      "distribution_sha256": "28d544a54523e7119a7e4e29e17a2dd532e2c611b8f1991c591fb460dafc81f6",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    },
+    {
+      "source_path": "finrobot_equity/core/requirements.txt",
+      "runtime_path": "core/requirements.txt",
+      "source_sha256": "3e5b3c074b31a7e03cddf2da0d0e5df380a23483c7dcb73e9fcbaa2809c3e16d",
+      "distribution_sha256": "3e5b3c074b31a7e03cddf2da0d0e5df380a23483c7dcb73e9fcbaa2809c3e16d",
+      "local_modified": false,
+      "source_status": "tracked_clean",
+      "distribution_change": "byte-for-byte copy"
+    }
+  ]
+}
